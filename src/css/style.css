@@ -1,13 +1,11 @@
-/**Imports**/
+/*****Imports*****/
 @import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
 
-/**COMMONS**/
+/**********COMMONS**********/
 :root{
     --mainColor: #B3102E;
     --main2Color: #006612;
-    --whiteColor: #FFF;
     --textColor: #000; 
-    --textHover: #FF3056;
     --background: #EDEDED;
     --swiper-theme-color: var(--main2Color);
 }
@@ -38,12 +36,14 @@ body{
 
 h2{
     font-size: 4vh;
+    word-break: break-word;
 }
 
 h3{
     font-size: 3.5vh;
     font-weight: 500;
     text-decoration: underline;
+    word-break: break-word;
 }
 
 h4{
@@ -68,13 +68,6 @@ p{
 }
 
 
-/*
-.hide{
-    display: none;
-}*/
-
-
-
 /**Icons**/
 .fa-2xl{
     font-size: 2.5rem;
@@ -84,16 +77,23 @@ p{
 
 
 
-/******HEADER******/
-
+/**********HEADER**********/
 .indexHeader {
     height: 45vw;
     overflow:hidden;
     position: relative;
 }
 
+.indexHeader a{
+    font-weight: 600;
+}
+
 .indexHeader .navBigScreen{
     display: none;
+}
+
+.navBigScreen a{
+    text-decoration: underline var(--mainColor) 2px;
 }
 
 .logo{
@@ -104,10 +104,6 @@ p{
     padding-top: 15px;
 }
 
-.indexHeader a{
-    font-weight: 600;
-}
-
 .indexHeader nav {
     position: absolute;
     z-index: 10;
@@ -115,7 +111,6 @@ p{
     width: 100%;
     height: 15vw;
 }
-
 
 .indexHeader nav .dropdown i{
     position: absolute;
@@ -180,44 +175,43 @@ p{
 
 
 
-/******FOOTER******/
+/**********FOOTER**********/
 footer{
     display: grid;
     background: var(--main2Color);
-    grid-template-columns: 1fr;
-    grid-template-areas: "a" "b" "c" "d";
+    grid-template-columns: 100%;
     grid-gap: 0;
+    padding-top: 25px;
 }
 
-footer div:nth-child(1){
-    grid-area: a;
+footer > div:first-child{
+    margin: 0 auto;
+}
+footer > div:first-child{
+    margin: 15px auto;
 }
 
-footer div:nth-child(2){
-    grid-area: b;
-}
-
-footer div:nth-child(3){
-    grid-area: c;
+footer > div .logo{
+    padding: 0;
 }
 
 footer h4{
     padding-bottom: 15px;
 }
 
-footer div:not(:last-child){
+footer div:not(:last-child,:first-child){
     justify-self: left;
     padding-top: 15px;
     padding-bottom: 15px;
-    padding-left: 25px;
+    padding-left: 35px;
 }
 
-footer div:not(:last-child) a{
+footer div:not(:last-child,:first-child) a{
     padding-left: 15px;
 
 }
 
-footer div:not(:last-child) li{
+footer div:not(:last-child,:first-child) li{
     padding-bottom: 15px;
 }
 
@@ -228,7 +222,6 @@ footer div:first-child{
 footer div:last-child{
     background: var(--mainColor);
     padding: 15px 0;
-    grid-area: d;
 }
 
 footer div:last-child ul{
@@ -247,47 +240,45 @@ footer div:last-child li{
     margin: 25px;
 }
 
-.containerIndex > div{
+.containerIndex > section{
     margin-bottom: 70px;
 }
 
-/*Area 1*/
+/**Section 1**/
 .containerIndex .logo{
     padding: 0;
 }
-.containerIndex > div:first-child{
+.containerIndex > section:first-child{
     margin-top: 50px;
     text-align:center;
 }
 
-.containerIndex > div:first-child h2{
+.containerIndex > section:first-child h2{
     margin-top: 25px;
 }
 
-/*Area 2*/
+/**Section 2**/
 .containerIndex .about p{
     margin: 25px 15px;
 }
 
-/*Area 3*/
+/**Section 3**/
 .containerIndex .categories h3{
     margin-bottom: 25px;
 }
 
-.swiperIndex{
+swiper-container{
     width: 100%;
     height: 90vw;
     margin-bottom: 25px;
 }
 
-.swiperIndex swiper-slide {
+swiper-container swiper-slide {
     text-align: center;
     background: var(--background);
-   /* display: flex;
-    align-items: center;*/
-  }
+}
 
-.swiperIndex swiper-slide div{
+swiper-container swiper-slide div{
     height: 70%;
 }
 
@@ -298,7 +289,7 @@ swiper-slide img {
     object-fit: cover;
 }
 
-.swiperIndex swiper-slide h4{
+swiper-container swiper-slide h4{
     margin-top: 15px;
 }
 
@@ -311,7 +302,7 @@ swiper-slide img {
 
 
 
-/*****COMMON CONTAINER*****/
+/**********COMMON CONTAINER**********/
 .container{
     margin: 25px;
 }
@@ -324,7 +315,9 @@ swiper-slide img {
     margin-bottom: 15px;
 }
 
-/*****LINKS*****/
+
+
+/**********LINKS**********/
 .containerLinks ul{
     margin-bottom: 25px;
 }
@@ -335,13 +328,65 @@ swiper-slide img {
     list-style-type: disc;
 }
 .containerLinks a{
-    color: var(--main2Color);
+    color: blue;
+    text-decoration: underline;
 }
 
 
+/**********CATEGORY**********/
+.containerCategory .categoryCard{
+   background: var(--background);
+   margin-bottom: 25px;
+   height: fit-content;
+}
+
+.containerCategory .categoryCard img{
+    width: 100%;
+}
+
+.containerCategory .categoryCard > div{
+    padding: 15px;
+}
+
+.containerCategory .categoryCard > div h4{
+    margin-bottom: 15px;
+}
+
+.containerCategory .categoryCard > div a{
+    padding: 15px;
+    background: var(--main2Color);
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+}
 
 
-/**MEDIA QUERIES**/
+/**********DETAIL**********/
+.containerDetail {
+    overflow: hidden;
+}
+.containerDetail .imgCover{
+    width: 100%;
+}
+
+.containerDetail article{
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 25px;
+}
+
+.containerDetail .swiper-container .card{
+    background: var(--background);
+    padding-bottom: 25px;
+    text-align: center;
+}
+.containerDetail .swiper-container img{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+/**********MEDIA QUERIES**********/
 @media screen and (max-width: 479px) {
     /**HEADER**/
 
@@ -350,7 +395,7 @@ swiper-slide img {
 }
 
 @media screen and (min-width: 480px) and (max-width: 799px){
-    /**HEADER**/
+    /*****HEADER*****/
     .indexHeader .logo{
         padding: 25px;
     }
@@ -367,21 +412,40 @@ swiper-slide img {
         bottom: -5vw;
     }
 
-    /**FOOTER**/
-    footer div:not(:last-child){
+    /*****FOOTER*****/
+    footer{
+        grid-template-columns: auto auto;
+    }
+
+    footer div:not(:last-child, :first-child){
         padding-left: 50px;
     }
 
-    /**INDEX**/
-    .swiperIndex{
+    footer div:first-child{
+        margin-left: 15%;
+    }
+
+    footer > div:last-child{
+        grid-column: span 2;
+    }
+
+    /*****INDEX*****/
+    swiper-container{
         height: 50vw;
+    }
+
+    /*****CATEGORY*****/
+    .containerCategory > div{
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 25px;
     }
     
     
 }
 
 @media screen and (min-width: 800px){
-   /**HEADER**/
+   /*****HEADER*****/
     .indexHeader .dropdown{
         display: none;
     }
@@ -408,35 +472,43 @@ swiper-slide img {
         justify-content: space-between;
     }
 
-      /**HEADER2**/
-      .containerHeader{
+    /**HEADER2**/
+    .containerHeader{
         height: 150px;
     }
 
-    /**FOOTER**/
+    /*****FOOTER*****/
     footer{ 
-        grid-gap: 5px;
-        grid-template-columns: repeat(3,1fr);
-        grid-template-areas: "a b c" "d d d";
-    }
-    
-    footer div:not(:last-child){
-        padding: 0px;
-        padding-top: 25px;
-        padding-left: 50px;
+        grid-template-columns: auto auto auto auto;
     }
     
     footer div:last-child{
-        padding-bottom: 0;
+        grid-column: span 4;
     }
 
     footer div:last-child ul{
         grid-template-areas: "a b c";
     }
 
-    /**INDEX**/
-    .swiperIndex{
+    /*****INDEX*****/
+    swiper-container{
         height: 20vw;
+    }
+
+    /*****CATEGORY*****/
+    .containerCategory > div{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 25px;
+    }
+
+    /*****DETAIL*****/
+    .containerDetail article{
+        grid-template-columns: auto auto;
+    }
+
+    .containerDetail article h2{
+        grid-column: span 2;
     }
 }
 
@@ -465,11 +537,12 @@ swiper-slide img {
         font-size: 1.8rem;
     }
 
-    /**INDEX**/
+    /*****INDEX*****/
     .containerIndex{
         margin: 10vw 5vw;
     }
 
+    /*****COMMON CONTAINER*****/
     .container{
         margin: 50px 5vw;
     }
@@ -477,13 +550,13 @@ swiper-slide img {
     
 
 @media screen and (min-width: 1200px){
-    /**HEADER**/
+    /*****COMMON CONTAINER*****/
     header, footer, .containerIndex, .container{
         max-width: 1200px;
     }
-    
-    .indexHeader .mainNav ul{
 
+    /*****HEADER*****/
+    .indexHeader .mainNav ul{
         grid-column-start: 3;
     }
   
@@ -491,21 +564,25 @@ swiper-slide img {
         width: 175px;
     }
 
-   /**INDEX**/
+   /*****INDEX*****/
     .containerIndex {
         margin: 100px 0;
     }
-
-
 }
 
-/**HOVER AND ACTIVE**/
-a:hover{
+/*****HOVER AND ACTIVE****/
+/**general links**/
+a:hover:not(.logo){
     text-decoration: underline var(--mainColor) 2px;
 }
 
 a:active{
     color: var(--mainColor);
+}
+
+/**links header**/
+.navBigScreen a:hover{
+    text-decoration: underline var(--main2Color) 2px;
 }
 
 .menu li:hover a{
@@ -516,66 +593,23 @@ a:active{
     cursor: pointer;
 }
 
+/**links footer**/
+footer a:hover i{
+    color: var(--mainColor);
+}
 footer div:last-child a:hover{
     text-decoration: underline var(--main2Color) 2px;
 }
 
-
-
-
-
-
-/*
-.containerIndex .categories{
-    display: grid;
-    justify-content: center;
-    grid-template-areas: "cardTitle" "cardA" "cardB" "cardC" "cardD"; 
-
+/**Cards**/
+.containerCategory .categoryCard > div a:hover{
+    text-decoration: none;
+    background: var(--mainColor);
+    font-weight: 700;
 }
 
-.containerIndex .categories h3{
-    margin-left: 25px;
+/**Logo**/
+.containerHeader .logo:hover, .containerHeader .logo:hover p{
+    color: var(--main2Color);
+    cursor: pointer;
 }
-
-.containerIndex .categories .card{
-    height: 70vw;
-    width: 85vw;
-    background: var(--main2Color);
-    margin: 25px;
-    border-radius: 20px;
-}
-
-.containerIndex .categories .card img{
-    width: 100%;
-    height: 55vw;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-}
-
-.containerIndex .categories .card h4{
-    text-align: center;
-    margin-top: 3vw;
-}
-
-.containerIndex .categories h3{
-    grid-area: cardTitle;
-}
-
-.containerIndex .categories .card:nth-child(2){
-    grid-area: cardA;
-}
-
-.containerIndex .categories .card:nth-child(3){
-    grid-area: cardB;
-}
-
-.containerIndex .categories .card:nth-child(4){
-    grid-area: cardC;
-}
-
-.containerIndex .categories .card:nth-child(5){
-    grid-area: cardD;
-}
-
-
-*/
