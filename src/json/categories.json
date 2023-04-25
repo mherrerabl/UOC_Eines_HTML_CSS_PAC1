@@ -1,0 +1,16 @@
+{
+   "0": {
+        "id": 1,
+        "name": "Categoria1",
+        "img": [{
+            "0": "./img/1.jpg"
+        }],
+        "description": [{
+            "0": "des",
+            "1": "des2",
+            "2": "des3"
+        }],
+        "latitude": 0.05,
+        "altitude": 0.07 
+    }
+}
