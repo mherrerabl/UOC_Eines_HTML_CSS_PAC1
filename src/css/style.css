@@ -51,7 +51,7 @@ h4{
 }
 
 p, li, a{
-    font-size: 1.5vh;
+    font-size: 1.4rem;
     color: var(--textColor);
 }
 
@@ -61,13 +61,28 @@ li{
 
 a{
     text-decoration: none;
+    word-break: break-word;
 }
 
 p{
-    line-height: 2.7rem;
+    line-height: 2.8rem;
+    text-align: justify;
+    margin-bottom: 25px;
 }
 
+figcaption{
+    text-align: end;
+    margin-top: 10px;
+}
 
+figcaption a{
+    font-size: 1rem;
+    text-decoration: underline var(--main2Color) 2px;
+}
+
+.logo{
+    word-break: normal;
+}
 /**Icons**/
 .fa-2xl{
     font-size: 2.5rem;
@@ -254,12 +269,22 @@ footer div:last-child li{
 }
 
 .containerIndex > section:first-child h2{
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
 /**Section 2**/
 .containerIndex .about p{
     margin: 25px 15px;
+}
+
+.containerIndex .about ul{
+    margin-bottom: 50px;
+}
+
+.containerIndex .about li{
+    list-style: disc;
+    margin-left: 50px;
+    margin-bottom: 15px;
 }
 
 /**Section 3**/
@@ -334,30 +359,31 @@ swiper-container swiper-slide h4{
 
 
 /**********CATEGORY**********/
+.containerCategory li{
+    background: var(--background);
+    margin-bottom: 25px;
+}
+
 .containerCategory .categoryCard{
-   background: var(--background);
-   margin-bottom: 25px;
-   height: fit-content;
+    display: grid;
 }
 
 .containerCategory .categoryCard img{
     width: 100%;
 }
 
-.containerCategory .categoryCard > div{
-    padding: 15px;
+.containerCategory .categoryCard h4{
+    padding: 25px 15px;
+    text-align: center;
+    align-self: center;
 }
 
-.containerCategory .categoryCard > div h4{
-    margin-bottom: 15px;
-}
-
-.containerCategory .categoryCard > div a{
+.containerCategory .categoryCard a{
     padding: 15px;
     background: var(--main2Color);
     display: block;
-    margin-top: 15px;
     text-align: center;
+    align-self: flex-end;
 }
 
 
@@ -384,6 +410,56 @@ swiper-container swiper-slide h4{
     width: 100%;
     margin-bottom: 15px;
 }
+
+/*****Accommodation*****/
+.containerDetail .accommodation .accommodationMap{
+    width: 500px;
+    height: 250px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.containerDetail .accommodation .price{
+    text-align: end;
+}
+
+.containerDetail .accommodation a{
+    text-decoration: underline var(--main2Color) 2px;
+}
+
+/*****Gastronomy*****/
+.containerDetail .gastronomy{
+    margin-bottom: 50px;
+}
+
+.containerDetail .gastronomy img{
+    width: 100%;
+}
+
+
+/**********ABOUT**********/
+.containerAbout ul{
+    margin-bottom: 50px;
+}
+
+.containerAbout li{
+    list-style: disc;
+    margin-left: 50px;
+    margin-bottom: 10px;
+}
+
+.containerAbout figure{
+    margin-bottom: 50px;
+}
+
+.containerAbout figure img{
+    width: 100%;
+}
+
+
+
+
+
 
 
 /**********MEDIA QUERIES**********/
@@ -435,12 +511,17 @@ swiper-container swiper-slide h4{
     }
 
     /*****CATEGORY*****/
-    .containerCategory > div{
+    .containerCategory > ul{
         display: grid;
         grid-template-columns: auto auto;
         grid-gap: 25px;
     }
     
+    .containerCategory .categoryCard img{
+        width: 45vw;
+        height: 35vw;
+        max-width: 100%;
+    }
     
 }
 
@@ -493,13 +574,21 @@ swiper-container swiper-slide h4{
     /*****INDEX*****/
     swiper-container{
         height: 20vw;
+        max-height: 300px;
     }
 
     /*****CATEGORY*****/
-    .containerCategory > div{
+    .containerCategory > ul{
     display: grid;
     grid-template-columns: auto auto auto auto;
     grid-gap: 25px;
+    }
+
+    .containerCategory .categoryCard img{
+        width: 20vw;
+        height: 15vw;
+        max-width: 250px;
+        max-height: 185px;
     }
 
     /*****DETAIL*****/
@@ -510,6 +599,76 @@ swiper-container swiper-slide h4{
     .containerDetail article h2{
         grid-column: span 2;
     }
+
+    /**Accommodation**/
+    .containerDetail .accommodation {
+        display: block;
+    }
+
+    /**Gastronomy**/
+    .containerDetail .gastronomy section{
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 25px;
+    }
+
+    .containerDetail .gastronomy section:not(:last-child){
+        margin-bottom: 25px;
+    }
+
+    .containerDetail .gastronomy section h3{
+        grid-column: span 2;
+    }
+
+
+    /*****ABOUT*****/
+    .containerAbout h2{
+        grid-column: span 2;
+    }
+
+    .containerAbout > div{
+       display: grid;
+       grid-template-columns: auto auto;
+       grid-gap: 25px;
+    }
+
+    .containerAbout div > p{
+        align-self: center;
+    }
+
+    .containerAbout div > figure img{
+        width: 500px;
+        height: 300px;
+    }
+
+    .containerAbout section {
+       display: grid;
+       grid-template-columns: auto auto;
+       grid-gap: 0px 50px;
+    }
+
+    .containerAbout section:nth-child(3) h3, .containerAbout section:nth-child(4) h3 {
+        grid-column: span 2;
+    }
+
+    .containerAbout section:nth-child(3) p:nth-child(2),  .containerAbout section:nth-child(3) p:nth-child(5), .containerAbout section:nth-child(4) p:nth-child(2){
+        grid-column: span 2;
+    }
+
+    .containerAbout section:nth-child(3) p:nth-child(4), .containerAbout section:nth-child(4) ul:nth-child(3){
+        align-self: center;
+    }
+
+    .containerAbout section:nth-child(4) li{
+        margin-bottom: 25px;
+    }
+    
+    /*****COMMON CONTAINER*****/
+       .container{
+        margin: 50px;
+    }
+    
 }
 
 @media screen and (min-width: 1024) {
@@ -544,7 +703,7 @@ swiper-container swiper-slide h4{
 
     /*****COMMON CONTAINER*****/
     .container{
-        margin: 50px 5vw;
+        margin: 75px;
     }
 }
     
@@ -556,6 +715,9 @@ swiper-container swiper-slide h4{
     }
 
     /*****HEADER*****/
+    .indexHeader{
+        max-height: 700px;
+    }
     .indexHeader .mainNav ul{
         grid-column-start: 3;
     }
@@ -602,7 +764,7 @@ footer div:last-child a:hover{
 }
 
 /**Cards**/
-.containerCategory .categoryCard > div a:hover{
+.containerCategory .categoryCard a:hover{
     text-decoration: none;
     background: var(--mainColor);
     font-weight: 700;

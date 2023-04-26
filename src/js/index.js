@@ -55,49 +55,9 @@ setInterval(() => {
 
 
 /*****INDEX*****/
-//Canvia el número de columnes de SwiperJS
-function gridSwiper(wWidth) {
-    if (wWidth < 479){
-        $('swiper-container').attr('slides-per-view', '1');
-    }else if(wWidth < 800){
-        $('swiper-container').attr('slides-per-view', '2');
-    }else if (wWidth > 801){
-        $('swiper-container').attr('slides-per-view', '4');
-    }
-}
-
-$(function() {
-    let wWidth = $(window).width();
-    gridSwiper(wWidth);
-    swiperDetail(wWidth)
-});
-
-$(window).on("resize", function(){  
-    let wWidth = $(window).width();
-    gridSwiper(wWidth);
-    swiperDetail(wWidth);
-});
-
 //Afegeix el mapa a la pàgina principal
 if($(".containerIndex")[0]){
-    const mapOptions = {
-        center: [34.413836863583136, 135.86368042265963],
-        zoom: 10
-    }
-    
-    const map = new L.map('mapIndex', mapOptions);
-    const layer = new L.TileLayer('http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png');
-    map.addLayer(layer);
-    
-    let markerOptions = {
-        title: "Prefectrua de Nara",
-        clickable: true,
-        draggable: true
-    }
-    const marker = new L.Marker([34.413836863583136, 135.86368042265963], markerOptions);
-    //repetir marker
-    marker.bindPopup('<img style="width: 200px" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/T%C5%8Ddai-ji_Kon-d%C5%8D.jpg"><p style="text-align: center">Prefectura de Nara</p>').openPopup();
-    marker.addTo(map);
+    createMap('mapIndex', 34.413836863583136, 135.86368042265963, "https://upload.wikimedia.org/wikipedia/commons/2/2f/T%C5%8Ddai-ji_Kon-d%C5%8D.jpg", "Prefectura de Nara", 10);
 }
 
 
@@ -116,6 +76,27 @@ $(".menu a").on("click", function(event){
     localStorage.setItem("category", categoryClicked);
 });
 
+$("footer a").on("click", function(event){
+    categoryClicked  = event.target.id;
+    localStorage.setItem("category", categoryClicked);
+});
+
+//Crea el contingut de la pàgina
+if ($(".containerCategory")[0]) {
+    const arrArch = data["architecture"].information;
+    arrArch.forEach( a => {
+        $(".containerCategory ul").append(`<li class="categoryCard">
+                                                    <img src="${a.img[0].url}" alt="">
+                                                        <h4>${a.name}</h4>
+                                                        <a href="./detail.html" id="arch${a.id}">Més informació</a>
+                                                    
+                                            </li>`);
+    });
+    /*
+            
+    */
+}
+
 
 /*****DETAIL*****/
 //Rep l'id de l'element selecionat (<a>) i l'emmagatzema en localStorage
@@ -125,7 +106,68 @@ $(".categoryCard a").on("click", function(event){
     localStorage.setItem("detail", detailClicked);
 });
 
+//Verifica que sigui la pàgina Detail i crea el contingut de la pàgina
+if ($(".containerDetail")[0]) {
+    const infoCategory = data[categoryClicked];
+    
+    //Crea la pàgina d'Allotjaments
+    if(categoryClicked === "accommodations"){
+        const title = `<h2>${infoCategory.title}</h2>`;
+        const introduction = `<p>${infoCategory.introduction}</p>`;
+        const objHotels = infoCategory.information;
+        $(".containerDetail article").addClass("accommodation");
+        $(".containerDetail article").append(title);
+        $(".containerDetail article").append(introduction);
+        objHotels.forEach(hotel => {
+            $(".containerDetail article").append(`<section>
+                                                    <h3>${hotel.name}</h3>
+                                                    <p>${hotel.description}</p>
+                                                    <p class="price">El preu per nit és de ${hotel.price}€.</p>
+                                                    <div id="map${hotel.id}" class="accommodationMap"></div>
+                                                    <p>Per a més informació visiti la web oficial: <a href="${hotel.url}">${hotel.name}</a></p>
+                                                </section>`);
+            
+            createMap(`map${hotel.id}`, hotel.latitude, hotel.altitude, "", hotel.ubication, 15);
+        });
+    }
+
+    //Crea la pàgina Gastronomia
+    if(categoryClicked === "gastronomy"){
+        const title = `<h2>${infoCategory.title}</h2>`;
+        const objFoods = infoCategory.information;
+        $(".containerDetail article").addClass("gastronomy");
+        $(".containerDetail article").append(title);
+
+        objFoods.forEach( food => {
+            $(".containerDetail article").append(`<section>
+                                                    <h3>${food.name}</h3>
+                                                    <p>${food.description}</p>
+                                                    <figure>
+                                                        <img src="${food.img}" alt="">
+                                                        <figcaption><a href="${food.attribution.url}">${food.attribution.author}</a></figcaption>
+                                                    </figure>
+                                                    
+                                                </section>`);
+        });
+            
+    }
+
+    //Crea la pàgina Punts d'interès
+    if (categoryClicked === "architecture") {
+        const title = `<h2>${infoCategory.title}</h2>`;
+        const objArch = infoCategory.information;
+        $(".containerDetail article").addClass("architecture");
+        $(".containerDetail article").append(title);
+        console.log(detailClicked);
+            objArch.forEach(a => {
+                console.log(a);
+            });
+    }
+}
+
+
 //Busca en el document JSON la informació segons la categoria i el detall per crea la pàgina de detall
+/*
 const getDetail = localStorage.getItem("detail");
 const infoCategory = data[categoryClicked];
 let objDetail = {};
@@ -143,7 +185,6 @@ if(getDetail != undefined){
             }
         });
     });
-
     
     let htmlDetail = "<h2>"+objDetail.title+"</h2>"+
                             "<img class='imgCover' src='"+objDetail.img[0][0]+"' alt=''>"+
@@ -157,58 +198,78 @@ if(getDetail != undefined){
 
     otherDetail.forEach( el => {
         let n = 1;
-        let htmlOtherPage = "<div class='card'>"+
-                                "<img src='"+el.img[0][0]+"' alt=''>"+
-                                "<h4>"+el.title+"</h4>"+
-                            "</div>";
-        
-        $(".swiper1").add("p");
+        let htmlOtherPage = '<div class="swiper-slide">'+
+                        '<div class="card">'+
+                            '<img src="img/1.jpg" alt="">'+
+                            '<h4>Detall</h4>'+
+                        '</div>'+
+                    '</div>';
+        $(".containerDetail .swiper-wrapper").append(htmlOtherPage);
         n++;
     });
+}
+*/
 
+/**********GENEREAL FUNCTIONS***********/
+//Crea el mapa segons la latitud i l'altitud
+function createMap(el, lat, alt, img, title, zoom){
+    const mapOptions = {
+        center: [lat, alt],
+        zoom: zoom
+    }
+    
+    const map = new L.map(el, mapOptions);
+    const layer = new L.TileLayer('http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png');
+    map.addLayer(layer);
+    
+    let markerOptions = {
+        title: "Prefectrua de Nara",
+        clickable: true,
+        draggable: true
+    }
+    const marker = new L.Marker([lat, alt], markerOptions);
+    if(img === ""){
+        marker.bindPopup('<p style="text-align: center">'+title+'</p>').openPopup();
+    }else{
+        marker.bindPopup('<img style="width: 200px" src="'+img+'"><p style="text-align: center">'+title+'</p>').openPopup();
+    }
+    marker.addTo(map);
 }
 
-function swiperDetail(wWidth){
-    let swiper;
-
+//Canvia el número de columnes de SwiperJS
+function gridSwiper(wWidth) {
     if (wWidth < 479){
-        swiper = new Swiper(".swiper-container", {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 30,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
-            }
-          });
+        $('swiper-container').attr('slides-per-view', '1');
+        createSwiper(1);
     }else if(wWidth < 800){
-        swiper = new Swiper(".swiper-container", {
-            loop: true,
-            slidesPerView: 2,
-            spaceBetween: 30,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
-            }
-          });
+        $('swiper-container').attr('slides-per-view', '2');
+        createSwiper(2);
     }else if (wWidth > 801){
-        swiper = new Swiper(".swiper-container", {
-            loop: true,
-            slidesPerView: 4,
-            spaceBetween: 30,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
-            }
-          });
+        $('swiper-container').attr('slides-per-view', '4');
+        createSwiper(4);
     }
 }
+
+//Crea un swiper per la pàgina de Detall
+function createSwiper(numCol) {
+    let swiper = new Swiper(".swiperDetail .swiper-container", {
+        loop: true,
+        slidesPerView: numCol,
+        spaceBetween: 30,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        }
+      });
+}
+
+$(function() {
+    let wWidth = $(window).width();
+    gridSwiper(wWidth);
+});
+
+$(window).on("resize", function(){  
+    let wWidth = $(window).width();
+    gridSwiper(wWidth);
+});
     
