@@ -140,6 +140,10 @@ figcaption a{
     padding-top: 15px;
 }
 
+.logo p{
+    text-align: end;
+}
+
 .indexHeader nav {
     position: absolute;
     z-index: 10;
@@ -274,7 +278,7 @@ footer div:last-child li{
 
 /*******INDEX********/
 .containerIndex{
-    margin: 25px;
+    margin: 50px 25px;
 }
 
 .containerIndex > section{
@@ -286,16 +290,22 @@ footer div:last-child li{
     padding: 0;
 }
 .containerIndex > section:first-child{
-    margin-top: 50px;
+    margin-top: 25px;
+    margin-bottom: 100px;
     text-align:center;
 }
 
-.containerIndex > section:first-child p{
+.containerIndex > section:first-child > p{
     margin-top: 15px;
     text-align: center;
     font-size: 3rem;
     font-family: 'Encode Sans SC', sans-serif;
 }
+
+.containerIndex > section:first-child > p span{
+    font-size: 2rem;
+}
+
 
 /**Section 2**/
 .containerIndex .about ul{
@@ -741,7 +751,7 @@ swiper-container swiper-slide h5{
 
     /*****INDEX*****/
     .containerIndex{
-        margin: 10vw 5vw;
+        margin: 50px;
     }
 
     /*****COMMON CONTAINER*****/
