@@ -160,6 +160,7 @@ if ($(".containerCategory")[0]) {
 
 /*****DETAIL*****/
 //Rep l'id de l'element selecionat (<a>) i l'emmagatzema en localStorage
+if ($(".containerDetail")[0]) {
 let categoryClicked = localStorage.getItem("category");
 categoryClicked === "" ? categoryClicked = "architecture" : categoryClicked = categoryClicked;
 let detailClicked = "";
@@ -171,7 +172,7 @@ detailClicked = localStorage.getItem("detail");
 
 
 //Verifica que sigui la pàgina Detail i crea el contingut de la pàgina
-if ($(".containerDetail")[0]) {
+
     const infoCategory = data[categoryClicked];
     console.log(`detail${detailClicked}`);
     //Crea la pàgina d'Allotjaments
