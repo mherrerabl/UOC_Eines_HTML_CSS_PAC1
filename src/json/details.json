@@ -99,8 +99,8 @@
                 "name": "Parc Nara",
                 "description": [
                     "És un parc públic situat als peus de la Muntanya Wakakusa i creat el 1880. El parc és un dels &quot;llocs de bellesa escènica&quot; designats pel Ministeri d'Educació, Cultura, Esports, Ciència i Tecnologia del Japó (MEXT). Els més de 1.200 cérvols shika salvatges que estan donant voltes lliurement al parc, també es troben sota la designació del MEXT, classificat com a &quot;Monument Natural&quot;. La mida oficial del parc és d'aproximadament 502 ha.", 
-                    "També es poden trobar serveis de jinrikisha (carro que es desplaça amb tracció humana) a les entrades dels temples Tōdai-ji i Kōfuku-ji. Els jardins que abans eren privats són mostrats al públic. Aquests jardins fan ús dels edificis dels temples com a elements adjunts dels seus paisatges. El parc és la llar del Museu Nacional de Nara i del santuari Todai-ji.", 
-                    "Segons el folklore local, els cérvols d'aquesta zona es consideraven sagrats, a causa de la visita de Takenomikazuchi-no-mikoto, un dels quatre déus del Santuari Kasuga. Es diu que havia estat convidat i va aparèixer a la Muntanya Mikasa-yama muntant un cérvol blanc. Des d'aleshores el cérvol ha sigut considerat un ésser diví i sagrat als temples Kasuga i Kōfuku-ji. Després de Segona Guerra Mundial, els cérvols van ser desposseïts oficialment el seu estatus sagrat i diví, per ser designats com a tresors nacionals protegits com a tals. Avui dia, els visitants poden comprar Shika-senbei, unes croquetes per alimentar els cérvols al parc."
+                    "També es poden trobar serveis de jinrikisha (carro que es desplaça amb tracció humana) a les entrades dels temples Tōdai-ji i Kōfukuji. Els jardins que abans eren privats són mostrats al públic. Aquests jardins fan ús dels edificis dels temples com a elements adjunts dels seus paisatges. El parc és la llar del Museu Nacional de Nara i del santuari Todai-ji.", 
+                    "Segons el folklore local, els cérvols d'aquesta zona es consideraven sagrats, a causa de la visita de Takenomikazuchi-no-mikoto, un dels quatre déus del Santuari Kasuga. Es diu que havia estat convidat i va aparèixer a la Muntanya Mikasa-yama muntant un cérvol blanc. Des d'aleshores el cérvol ha sigut considerat un ésser diví i sagrat als temples Kasuga i Kōfukuji. Després de Segona Guerra Mundial, els cérvols van ser desposseïts oficialment el seu estatus sagrat i diví, per ser designats com a tresors nacionals protegits com a tals. Avui dia, els visitants poden comprar Shika-senbei, unes croquetes per alimentar els cérvols al parc."
                 ],
                 "img": [
                     {
@@ -208,16 +208,16 @@
             },
             {
                 "id": 4,
-                "name": "Temple Kōfuku-ji",
+                "name": "Temple Kōfukuji",
                 "description": [
                     "És un temple budista de l'escola Obaku ubicat a la ciutat de Nara. El temple, juntament amb altres edificis, van ser declarats per la Unesco el 1998 com a Patrimoni de la Humanitat com a part dels &quot;Monuments històrics de l'antiga Nara&quot;. Va formar part del Nanto Shichi Daiji, els set temples més importants de Nara.", 
-                    "Kōfuku-ji té el seu origen al 669, quan va ser construït per Kagami-no-Ōkimi, l'esposa de Fujiwara no Kamatari, desitjant que el seu espòs es recuperés de la seva malaltia. Inicialment estava ubicat a Yamashina, Província de Yamashiro (actual Kyoto). El 672, el temple va ser traslladat a Fujiwara-kyō, la primera capital japonesa planificada per copiar el patró de quadrícula ortogonal de Chang'an. El 710, el temple va ser desmantellat per segona vegada i traslladat a la seva ubicació actual, al costat est de la capital recent construïda, Heijō-kyō, l'actual Nara.", 
+                    "Kōfukuji té el seu origen al 669, quan va ser construït per Kagami-no-Ōkimi, l'esposa de Fujiwara no Kamatari, desitjant que el seu espòs es recuperés de la seva malaltia. Inicialment estava ubicat a Yamashina, Província de Yamashiro (actual Kyoto). El 672, el temple va ser traslladat a Fujiwara-kyō, la primera capital japonesa planificada per copiar el patró de quadrícula ortogonal de Chang'an. El 710, el temple va ser desmantellat per segona vegada i traslladat a la seva ubicació actual, al costat est de la capital recent construïda, Heijō-kyō, l'actual Nara.", 
                     "El temple va ser danyat i destruït per guerres civils i incendis moltes vegades i va ser reconstruït, encara que finalment alguns dels edificis importants, com un dels tres salons daurats, el Nandaimon, Chūmon i el corredor mai van ser reconstruïts i falten a dia d'avui. La reconstrucció del Pavelló Daurat Central es va completar el 2018."
                 ],
                 "img": [
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Kofukuji12st5s3200.jpg",
-                        "alt": "Temple Kōfuku-ji",
+                        "alt": "Temple Kōfukuji",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:Kofukuji12st5s3200.jpg"

@@ -1,8 +1,6 @@
 //IMPORT
 import * as $  from "jquery";
-import data from '../json/details.json';
-import Swiper from '../../node_modules/swiper/swiper-bundle.esm.browser.min'
-
+import data from './json/details.json';
 
 /*****HEADER*****/
 //Menu

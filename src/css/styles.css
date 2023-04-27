@@ -570,7 +570,7 @@ swiper-container swiper-slide h4{
     }
 
     footer div:last-child ul{
-        grid-template-areas: "a b c";
+        grid-template-columns: "a b c";
     }
 
     /*****INDEX*****/
