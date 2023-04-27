@@ -63,7 +63,6 @@ setInterval(() => {
 
 
 $(function(){
-    console.log("dd");
 /*****INDEX*****/
 //Afegeix el mapa a la pàgina principal
 if($(".containerIndex")[0]){
@@ -101,12 +100,12 @@ if ($(".containerCategory")[0]) {
 let categoryClicked = localStorage.getItem("category");
 categoryClicked === "" ? categoryClicked = "architecture" : categoryClicked = categoryClicked;
 let detailClicked = localStorage.getItem("detail");
-
 $(".categoryCard a").on("click", function(event){
     detailClicked  = event.target.id;
     localStorage.setItem("detail", detailClicked);
 });
  
+console.log(`detail${detailClicked}`);
 
 //Verifica que sigui la pàgina Detail i crea el contingut de la pàgina
 if ($(".containerDetail")[0]) {
