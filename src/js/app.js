@@ -20,7 +20,6 @@ function setDetail(el){
     $(el).on("click", function(){
         detailClicked  = $(this).attr('id');
         localStorage.setItem("detail", detailClicked);
-        alert(localStorage.getItem("detail"));
     });
 }
 
