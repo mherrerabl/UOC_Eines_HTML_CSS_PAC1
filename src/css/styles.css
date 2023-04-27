@@ -786,7 +786,7 @@ a:active{
 }
 
 /**links header**/
-.navBigScreen a:hover{
+.navBigScreen li a:hover{
     text-decoration: underline var(--main2Color) 2px;
 }
 
