@@ -5,6 +5,7 @@ import data from '../json/details.json';
 //register();
 
 
+
 /**********GENEREAL FUNCTIONS***********/
 //Modifica la variable de la categoria clicada
 function setCategory(el) {
@@ -160,7 +161,6 @@ if ($(".containerCategory")[0]) {
 
 /*****DETAIL*****/
 //Rep l'id de l'element selecionat (<a>) i l'emmagatzema en localStorage
-if ($(".containerDetail")[0]) {
 let categoryClicked = localStorage.getItem("category");
 categoryClicked === "" ? categoryClicked = "architecture" : categoryClicked = categoryClicked;
 let detailClicked = "";
@@ -172,9 +172,10 @@ detailClicked = localStorage.getItem("detail");
 
 
 //Verifica que sigui la pàgina Detail i crea el contingut de la pàgina
-
+if ($(".containerDetail")[0]) {
     const infoCategory = data[categoryClicked];
-    console.log(`detail${detailClicked}`);
+    
+    console.log(localStorage.getItem("detail"));
     //Crea la pàgina d'Allotjaments
     if(categoryClicked === "accommodations"){
         const title = `<h2>${infoCategory.title}</h2>`;
