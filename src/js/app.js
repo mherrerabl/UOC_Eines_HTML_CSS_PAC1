@@ -1,6 +1,8 @@
 //IMPORT
 import * as $  from "jquery";
 import data from '../json/details.json';
+import { register} from 'swiper/element/swiper-element-bundle';
+register();
 
 /*****HEADER*****/
 //Menu
