@@ -100,10 +100,11 @@ if ($(".containerCategory")[0]) {
 let categoryClicked = localStorage.getItem("category");
 categoryClicked === "" ? categoryClicked = "architecture" : categoryClicked = categoryClicked;
 let detailClicked = localStorage.getItem("detail");
-$(".categoryCard a").on("click", function(event){
-    detailClicked  = event.target.id;
-    localStorage.setItem("detail", detailClicked);
-});
+
+setDetail(".categoryCard a");
+setDetail("header a");
+
+
  
 console.log(`detail${detailClicked}`);
 
@@ -246,13 +247,20 @@ $(window).on("resize", function(){
 });
     
 /**********GENEREAL FUNCTIONS***********/
-//Modifica la categoria clicada
+//Modifica la variable de la categoria clicada
 function setCategory(el) {
     $(el).on("click", function(event){
         categoryClicked = event.target.id;
         localStorage.setItem("category", categoryClicked);
     });
-    
+}
+
+//Modifica la variable del detall clicat
+function setDetail(el){
+    $(el).on("click", function(){
+        detailClicked  = $(this).attr('id');
+        localStorage.setItem("detail", detailClicked);
+    });
 }
 
 //Crea el mapa segons la latitud i l'altitud
