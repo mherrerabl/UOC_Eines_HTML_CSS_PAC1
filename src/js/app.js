@@ -1,6 +1,6 @@
 //IMPORT
 import * as $  from "jquery";
-import data from './json/details.json';
+import data from '../json/details.json';
 
 /*****HEADER*****/
 //Menu
