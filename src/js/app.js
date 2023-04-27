@@ -257,9 +257,9 @@ function setCategory(el) {
 //Modifica la variable del detall clicat
 function setDetail(el){
     $(el).on("click", function(){
-        alert($(this).attr('id'));
         detailClicked  = $(this).attr('id');
         localStorage.setItem("detail", detailClicked);
+        alert(localStorage.getItem("detail"));
     });
 }
 
