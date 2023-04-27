@@ -619,7 +619,7 @@ swiper-container swiper-slide h5{
         margin-bottom: 0;
     }
 
-    .containerDetail .architecture figure, .containerDetail .architecture p, .containerDetail .architecture ul{
+    .containerDetail .architecture figure, .containerDetail .architecture p, .containerDetail .architecture section{
         margin-bottom: 0;
         align-self: center;
     }

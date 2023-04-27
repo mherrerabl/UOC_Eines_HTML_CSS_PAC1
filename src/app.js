@@ -182,7 +182,7 @@ if ($(".containerDetail")[0]) {
         $(".containerDetail article").append(content);
 
         if(objArch[0].list != undefined){
-            $(".containerDetail article").append(`<section><h3>${objArch[0].list.title}</h3><p>${objArch[0].list.introduction}</p></section>`);
+            $(".containerDetail article").append(`<section><h3>Què és pot fer?</h3></section>`);
             $(".containerDetail article section").append("<ul></ul>");
             objArch[0].list.description.forEach( li => {
                 
