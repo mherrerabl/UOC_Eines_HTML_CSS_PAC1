@@ -105,14 +105,12 @@ setDetail(".categoryCard a");
 setDetail("header a");
 
 detailClicked = localStorage.getItem("detail");
-console.log(`local${localStorage.getItem("detail")}`);
- 
-console.log(`detail${detailClicked}`);
+
 
 //Verifica que sigui la pàgina Detail i crea el contingut de la pàgina
 if ($(".containerDetail")[0]) {
     const infoCategory = data[categoryClicked];
-    
+    console.log(`detail${detailClicked}`);
     //Crea la pàgina d'Allotjaments
     if(categoryClicked === "accommodations"){
         const title = `<h2>${infoCategory.title}</h2>`;
@@ -259,6 +257,7 @@ function setCategory(el) {
 //Modifica la variable del detall clicat
 function setDetail(el){
     $(el).on("click", function(){
+        alert($(this).attr('id'));
         detailClicked  = $(this).attr('id');
         localStorage.setItem("detail", detailClicked);
     });
