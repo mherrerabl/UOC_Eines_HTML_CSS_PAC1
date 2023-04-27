@@ -4,6 +4,69 @@ import data from '../json/details.json';
 //import { register } from 'swiper/element/swiper-element-bundle'; //Error intern en el document
 //register();
 
+
+/**********GENEREAL FUNCTIONS***********/
+//Modifica la variable de la categoria clicada
+function setCategory(el) {
+    $(el).on("click", function(event){
+        categoryClicked = event.target.id;
+        localStorage.setItem("category", categoryClicked);
+    });
+}
+
+//Modifica la variable del detall clicat
+function setDetail(el){
+    $(el).on("click", function(){
+        detailClicked  = $(this).attr('id');
+        localStorage.setItem("detail", detailClicked);
+        alert(localStorage.getItem("detail"));
+    });
+}
+
+//Crea el mapa segons la latitud i l'altitud
+function createMap(el, lat, alt, img, title, zoom){
+    const mapOptions = {
+        center: [lat, alt],
+        zoom: zoom
+    }
+    
+    const map = new L.map(el, mapOptions);
+    const layer = new L.TileLayer('http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png');
+    map.addLayer(layer);
+    
+    let markerOptions = {
+        title: "Prefectrua de Nara",
+        clickable: true,
+        draggable: true
+    }
+    const marker = new L.Marker([lat, alt], markerOptions);
+    if(img === ""){
+        marker.bindPopup('<p style="text-align: center">'+title+'</p>').openPopup();
+    }else{
+        marker.bindPopup('<img style="width: 200px" src="'+img+'"><p style="text-align: center">'+title+'</p>').openPopup();
+    }
+    marker.addTo(map);
+}
+
+//Canvia el número de columnes de SwiperJS
+function gridSwiper(wWidth) {
+    if (wWidth < 479){
+        $('swiper-container').attr('slides-per-view', '1');
+       // createSwiper(1);
+    }else if(wWidth < 800){
+        $('swiper-container').attr('slides-per-view', '2');
+       // createSwiper(2);
+    }else if (wWidth > 801){
+        $('swiper-container').attr('slides-per-view', '4');
+       // createSwiper(4);
+    }
+}
+
+
+
+
+
+
 /*****HEADER*****/
 //Menu
 //Inserta el menú desplegable, el mostra. Quan es tanca, s'esborra
@@ -244,60 +307,3 @@ $(window).on("resize", function(){
     let wWidth = $(window).width();
     gridSwiper(wWidth);
 });
-    
-/**********GENEREAL FUNCTIONS***********/
-//Modifica la variable de la categoria clicada
-function setCategory(el) {
-    $(el).on("click", function(event){
-        categoryClicked = event.target.id;
-        localStorage.setItem("category", categoryClicked);
-    });
-}
-
-//Modifica la variable del detall clicat
-function setDetail(el){
-    $(el).on("click", function(){
-        detailClicked  = $(this).attr('id');
-        localStorage.setItem("detail", detailClicked);
-        alert(localStorage.getItem("detail"));
-    });
-}
-
-//Crea el mapa segons la latitud i l'altitud
-function createMap(el, lat, alt, img, title, zoom){
-    const mapOptions = {
-        center: [lat, alt],
-        zoom: zoom
-    }
-    
-    const map = new L.map(el, mapOptions);
-    const layer = new L.TileLayer('http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png');
-    map.addLayer(layer);
-    
-    let markerOptions = {
-        title: "Prefectrua de Nara",
-        clickable: true,
-        draggable: true
-    }
-    const marker = new L.Marker([lat, alt], markerOptions);
-    if(img === ""){
-        marker.bindPopup('<p style="text-align: center">'+title+'</p>').openPopup();
-    }else{
-        marker.bindPopup('<img style="width: 200px" src="'+img+'"><p style="text-align: center">'+title+'</p>').openPopup();
-    }
-    marker.addTo(map);
-}
-
-//Canvia el número de columnes de SwiperJS
-function gridSwiper(wWidth) {
-    if (wWidth < 479){
-        $('swiper-container').attr('slides-per-view', '1');
-       // createSwiper(1);
-    }else if(wWidth < 800){
-        $('swiper-container').attr('slides-per-view', '2');
-       // createSwiper(2);
-    }else if (wWidth > 801){
-        $('swiper-container').attr('slides-per-view', '4');
-       // createSwiper(4);
-    }
-}
