@@ -22,7 +22,6 @@ html {
 body{
     margin: 0 auto;
     max-width: 1200px;
-    min-height: 100vh;
 }
 
 .logo h1, .logo p, .logo a{
@@ -70,6 +69,18 @@ p{
     margin-bottom: 25px;
 }
 
+.logo{
+    word-break: normal;
+}
+
+figure{
+    margin-bottom: 25px;
+}
+
+figure img{
+    width: 100%;
+}
+
 figcaption{
     text-align: end;
     margin-top: 10px;
@@ -78,10 +89,6 @@ figcaption{
 figcaption a{
     font-size: 1rem;
     text-decoration: underline var(--main2Color) 2px;
-}
-
-.logo{
-    word-break: normal;
 }
 /**Icons**/
 .fa-2xl{
@@ -330,6 +337,7 @@ swiper-container swiper-slide h4{
 /**********COMMON CONTAINER**********/
 .container{
     margin: 25px;
+    margin-bottom: 50px;
 }
 
 .container h2{
@@ -388,32 +396,33 @@ swiper-container swiper-slide h4{
 
 
 /**********DETAIL**********/
-.containerDetail {
-    overflow: hidden;
-}
-.containerDetail .imgCover{
-    width: 100%;
+/*****Architecture*****/
+.containerDetail .architecture ul{
+    margin-bottom: 25px;
 }
 
-.containerDetail article{
-    display: grid;
-    grid-template-columns: auto;
-    grid-gap: 25px;
+.containerDetail .architecture li{
+    list-style: disc;
+    margin-left: 25px;
+    margin-top: 15px;
 }
 
-.containerDetail .swiper-container .card{
-    background: var(--background);
-    padding-bottom: 25px;
-    text-align: center;
+.containerDetail > section{
+    margin-top: 50px;
 }
-.containerDetail .swiper-container img{
-    width: 100%;
-    margin-bottom: 15px;
+.containerDetail > section h3{
+    margin-bottom: 25px;
+}
+
+.containerDetail .architectureMap{
+    max-width: 100%;
+    height: 300px;
 }
 
 /*****Accommodation*****/
 .containerDetail .accommodation .accommodationMap{
     width: 500px;
+    max-width: 100%;
     height: 250px;
     margin: 0 auto;
     margin-bottom: 50px;
@@ -425,6 +434,8 @@ swiper-container swiper-slide h4{
 
 .containerDetail .accommodation a{
     text-decoration: underline var(--main2Color) 2px;
+    display: inline-block;
+    margin-bottom: 25px;
 }
 
 /*****Gastronomy*****/
@@ -432,9 +443,6 @@ swiper-container swiper-slide h4{
     margin-bottom: 50px;
 }
 
-.containerDetail .gastronomy img{
-    width: 100%;
-}
 
 
 /**********ABOUT**********/
@@ -448,13 +456,7 @@ swiper-container swiper-slide h4{
     margin-bottom: 10px;
 }
 
-.containerAbout figure{
-    margin-bottom: 50px;
-}
 
-.containerAbout figure img{
-    width: 100%;
-}
 
 
 
@@ -592,13 +594,37 @@ swiper-container swiper-slide h4{
     }
 
     /*****DETAIL*****/
-    .containerDetail article{
-        grid-template-columns: auto auto;
+    .containerDetail .architecture{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-gap: 35px;
     }
 
-    .containerDetail article h2{
+    .containerDetail .architecture h2, .containerDetail .architecture p:nth-child(2){
+        grid-column: span 2;
+        margin-bottom: 0;
+    }
+
+    .containerDetail .architecture figure, .containerDetail .architecture p, .containerDetail .architecture ul{
+        margin-bottom: 0;
+        align-self: center;
+    }
+
+    .containerDetail .architecture p:last-child, .containerDetail .architecture p:nth-child(7){
         grid-column: span 2;
     }
+
+    .containerDetail .architecture section:last-child{
+        grid-column: span 2;
+    }
+
+    .containerDetail .architectureMap{
+        width: 700px;
+        margin: 50px auto;
+        height: 400px;
+    }
+
+   
 
     /**Accommodation**/
     .containerDetail .accommodation {
@@ -734,7 +760,7 @@ swiper-container swiper-slide h4{
 
 /*****HOVER AND ACTIVE****/
 /**general links**/
-a:hover:not(.logo){
+a:hover:not(.logo, .card){
     text-decoration: underline var(--mainColor) 2px;
 }
 
@@ -773,5 +799,23 @@ footer div:last-child a:hover{
 /**Logo**/
 .containerHeader .logo:hover, .containerHeader .logo:hover p{
     color: var(--main2Color);
+    cursor: pointer;
+}
+
+footer .logo:hover, footer .logo:hover p{
+    color: var(--mainColor);
+    cursor: pointer;
+}
+
+/**Swiper .card**/
+swiper-slide:hover{
+    border-bottom: 2px solid var(--mainColor);
+    height: auto;
+    cursor: pointer;
+}
+
+swiper-slide:active{
+    border-bottom: 2px solid var(--main2Color);
+    height: auto;
     cursor: pointer;
 }

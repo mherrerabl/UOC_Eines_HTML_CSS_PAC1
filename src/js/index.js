@@ -1,13 +1,18 @@
 //IMPORT
 import * as $  from "jquery";
-import data from '../json/categories.json';
+import data from '../json/details.json';
 import Swiper from '../../node_modules/swiper/swiper-bundle.esm.browser.min'
 
 
 /*****HEADER*****/
 //Menu
 //Inserta el menú desplegable, el mostra. Quan es tanca, s'esborra
-const contentMenu = '<ul class="menuUl"><li><a href="./about.html">Sobre Nara</a></li><li><a href="./category.html">Punts d&apos;interès</a></li><li><a href="./category.html">Gastronomia</a></li><li><a id="activitats" href="./category.html">Activitats</a></li><li><a href="./category.html">Allotjaments turístics</a></li></ul>'
+const contentMenu = `<ul class="menuUl">
+                        <li><a href="./about.html">Sobre Nara</a></li>
+                        <li><a id="architecture" href="./category.html">Punts d'interès</a></li>
+                        <li><a id="gastronomy" href="./detail.html">Gastronomia</a></li>
+                        <li><a id="accommodations" href="./detail.html">Allotjaments turístics</a></li>
+                    </ul>`;
 
 $(".iconMenu").on("click", function(){
     if($(".menu").find(".menuUl").length <= 0){
@@ -19,6 +24,9 @@ $(".iconMenu").on("click", function(){
             $(".menuUl").remove();
         }, 2000);   
     } 
+
+    //Modifica la variable clickedCategory
+    setCategory(".menu a");
 });
 
 //Si es prem fora del menú, es tanca
@@ -33,9 +41,8 @@ $(document).on('click',function(e){
 
 //Slider de les imatges de la capçalera
 let slideIndex = 1;
-showDivs(slideIndex);
 
-function showDivs(n) {
+function slideHeader(n) {
   let i;
   let x = document.getElementsByClassName("mySlides");
   if (n > x.length) {slideIndex = 1}
@@ -47,64 +54,58 @@ function showDivs(n) {
 }
 
 let n = 1;
+slideHeader(1);
 setInterval(() => {
-    showDivs(slideIndex += n);
+    slideHeader(slideIndex += 1);
     n++;
-    n == 4 ? n = 1 : n;
+    n > 4 ? n = 1 : n;
 }, 5000);
 
 
+$(function(){
 /*****INDEX*****/
 //Afegeix el mapa a la pàgina principal
 if($(".containerIndex")[0]){
     createMap('mapIndex', 34.413836863583136, 135.86368042265963, "https://upload.wikimedia.org/wikipedia/commons/2/2f/T%C5%8Ddai-ji_Kon-d%C5%8D.jpg", "Prefectura de Nara", 10);
+    const arrArch = data["architecture"].information;
+    arrArch.forEach( obj => {
+        $(".containerIndex .swiperIndex").append(`<swiper-slide>
+                                                        <div>
+                                                            <a id="arch${obj.id}" href="./detail.html" class="card">
+                                                            <img src="${obj.img[0].url}" alt="${obj.img[0].alt}">
+                                                            <h4>${obj.name}</h4>
+                                                            </a>
+                                                        </div>
+                                                    </swiper-slide>`);
+    });
 }
 
-
-
-/*****CATEGORY******/
-let categoryClicked = localStorage.getItem("category");
-
-//Rep l'id de l'element selecionat (<a>) i l'emmagatzema en localStorage
-$(".navBigScreen a").on("click", function(event){
-    categoryClicked = event.target.id;
-    localStorage.setItem("category", categoryClicked);
-});
-
-$(".menu a").on("click", function(event){
-    categoryClicked  = event.target.id;
-    localStorage.setItem("category", categoryClicked);
-});
-
-$("footer a").on("click", function(event){
-    categoryClicked  = event.target.id;
-    localStorage.setItem("category", categoryClicked);
-});
-
+/*****CATEGORY*****/
 //Crea el contingut de la pàgina
 if ($(".containerCategory")[0]) {
     const arrArch = data["architecture"].information;
     arrArch.forEach( a => {
         $(".containerCategory ul").append(`<li class="categoryCard">
-                                                    <img src="${a.img[0].url}" alt="">
+                                                    <img src="${a.img[0].url}" alt="${a.img[0].url}">
                                                         <h4>${a.name}</h4>
                                                         <a href="./detail.html" id="arch${a.id}">Més informació</a>
                                                     
                                             </li>`);
     });
-    /*
-            
-    */
 }
 
 
 /*****DETAIL*****/
 //Rep l'id de l'element selecionat (<a>) i l'emmagatzema en localStorage
+let categoryClicked = localStorage.getItem("category");
+categoryClicked === "" ? categoryClicked = "architecture" : categoryClicked = categoryClicked;
 let detailClicked = localStorage.getItem("detail");
+
 $(".categoryCard a").on("click", function(event){
     detailClicked  = event.target.id;
     localStorage.setItem("detail", detailClicked);
 });
+ 
 
 //Verifica que sigui la pàgina Detail i crea el contingut de la pàgina
 if ($(".containerDetail")[0]) {
@@ -143,7 +144,7 @@ if ($(".containerDetail")[0]) {
                                                     <h3>${food.name}</h3>
                                                     <p>${food.description}</p>
                                                     <figure>
-                                                        <img src="${food.img}" alt="">
+                                                        <img src="${food.img}" alt="${food.alt}">
                                                         <figcaption><a href="${food.attribution.url}">${food.attribution.author}</a></figcaption>
                                                     </figure>
                                                     
@@ -154,63 +155,106 @@ if ($(".containerDetail")[0]) {
 
     //Crea la pàgina Punts d'interès
     if (categoryClicked === "architecture") {
-        const title = `<h2>${infoCategory.title}</h2>`;
-        const objArch = infoCategory.information;
+        const arrArch = infoCategory.information;
+        const idArch = Number.parseInt(detailClicked.substring(4));
+        const objArch =  arrArch.filter(arch => arch.id === idArch);
+        const objArch2 =  arrArch.filter(arch => arch.id !== idArch);
+
+        const title = `<h2>${objArch[0].name}</h2>`;
+        
         $(".containerDetail article").addClass("architecture");
         $(".containerDetail article").append(title);
-        console.log(detailClicked);
-            objArch.forEach(a => {
-                console.log(a);
+
+        let content = `<p>${objArch[0].description[0]}</p>
+                        <figure>
+                            <img src="${objArch[0].img[0].url}" alt="${objArch[0].img[0].alt}">
+                            <figcaption><a href="${objArch[0].img[0].attribution.url}">${objArch[0].img[0].attribution.author}</a></figcaption>
+                        </figure>
+                        <p>${objArch[0].description[1]}</p>
+                        <p>${objArch[0].description[2]}</p>
+                        <figure>
+                            <img src="${objArch[0].img[1].url}" alt="${objArch[0].img[1].alt}">
+                            <figcaption><a href="${objArch[0].img[1].attribution.url}">${objArch[0].img[1].attribution.author}</a></figcaption>
+                        </figure>`;
+
+        if(objArch[0].description.length > 3){
+            content += `<p>${objArch[0].description[3]}</p>`;
+        }
+
+        $(".containerDetail article").append(content);
+
+        if(objArch[0].list != undefined){
+            $(".containerDetail article").append(`<section><h3>${objArch[0].list.title}</h3><p>${objArch[0].list.introduction}</p></section>`);
+            $(".containerDetail article section").append("<ul></ul>");
+            objArch[0].list.description.forEach( li => {
+                
+                $(".containerDetail article ul").append(`<li>${li}</li>`);
             });
-    }
+            $(".containerDetail article").append(`<figure>
+                                                    <img src="${objArch[0].img[2].url}" alt="${objArch[0].img[2].url}">
+                                                    <figcaption><a href="${objArch[0].img[2].attribution.url}">${objArch[0].img[2].attribution.author}</a></figcaption>
+                                                </figure>`);
+        }
+        
+        $(".containerDetail article").append(`<section>
+                                        <h3>Ubicació</h3>
+                                        <div class="architectureMap" id="mapDetail${objArch[0].id}"></div>
+                                    </section>`);
+
+        createMap(`mapDetail${objArch[0].id}`, objArch[0].latitude, objArch[0].altitude, objArch[0].img[0].url, objArch[0].name, 15);
+        $(".containerDetail").append(`<section>
+                                        <h3>Altres Punts d'interès</h3>
+                                        <swiper-container class="swiperDetail" space-between="25" grab-cursor="true" navigation="true" slides-per-view="1"></swiper-container>
+                                    </section>`);
+        objArch2.forEach( obj => {
+            $(".containerDetail .swiperDetail").append(`<swiper-slide>
+                                                            <div>
+                                                                <a id="arch${obj.id}" href="./detail.html" class="card">
+                                                                <img src="${obj.img[0].url}" alt="${obj.img[0].alt}">
+                                                                <h4>${obj.name}</h4>
+                                                                </a>
+                                                            </div>
+                                                        </swiper-slide>`);
+        });
+
+     
+    } 
+   
 }
 
+//Modifica detailClicked segons l'element de Swiper clicat
+$("swiper-slide a").on("click", function(){
+    detailClicked  = $(this).attr('id');
+    localStorage.setItem("detail", detailClicked);
+});
 
-//Busca en el document JSON la informació segons la categoria i el detall per crea la pàgina de detall
-/*
-const getDetail = localStorage.getItem("detail");
-const infoCategory = data[categoryClicked];
-let objDetail = {};
-let otherDetail = [];
+/*****NAV*****/
+//Modifica la variable clickedCategory
+setCategory(".indexHeader a");
+setCategory("footer a");
 
-if(getDetail != undefined){
-    infoCategory.forEach(element => {
-        objDetail = element[getDetail];
-    });
 
-    infoCategory.map(a => {
-        Object.keys(a).map( o => {
-            if(o !== getDetail){
-                otherDetail.push(a[o]);
-            }
-        });
+//Modifica el nombre de slide que es mostren en pantalla segons la mida de la pantalla
+let wWidth = $(window).width();
+gridSwiper(wWidth);
+
+});
+
+$(window).on("resize", function(){  
+    let wWidth = $(window).width();
+    gridSwiper(wWidth);
+});
+    
+/**********GENEREAL FUNCTIONS***********/
+//Modifica la categoria clicada
+function setCategory(el) {
+    $(el).on("click", function(event){
+        categoryClicked = event.target.id;
+        localStorage.setItem("category", categoryClicked);
     });
     
-    let htmlDetail = "<h2>"+objDetail.title+"</h2>"+
-                            "<img class='imgCover' src='"+objDetail.img[0][0]+"' alt=''>"+
-                            "<p>"+objDetail.description[0][0]+"</p>"+
-                            "<img class='imgCover' src='"+objDetail.img[0][1]+"' alt=''>"+
-                            "<p>"+objDetail.description[0][1]+"</p>"+
-                            "<img class='imgCover' src='"+objDetail.img[0][2]+"' alt=''>"+
-                            "<p>"+objDetail.description[0][2]+"</p>";
-                            
-    $(".containerDetail article").append(htmlDetail);
-
-    otherDetail.forEach( el => {
-        let n = 1;
-        let htmlOtherPage = '<div class="swiper-slide">'+
-                        '<div class="card">'+
-                            '<img src="img/1.jpg" alt="">'+
-                            '<h4>Detall</h4>'+
-                        '</div>'+
-                    '</div>';
-        $(".containerDetail .swiper-wrapper").append(htmlOtherPage);
-        n++;
-    });
 }
-*/
 
-/**********GENEREAL FUNCTIONS***********/
 //Crea el mapa segons la latitud i l'altitud
 function createMap(el, lat, alt, img, title, zoom){
     const mapOptions = {
@@ -240,36 +284,12 @@ function createMap(el, lat, alt, img, title, zoom){
 function gridSwiper(wWidth) {
     if (wWidth < 479){
         $('swiper-container').attr('slides-per-view', '1');
-        createSwiper(1);
+       // createSwiper(1);
     }else if(wWidth < 800){
         $('swiper-container').attr('slides-per-view', '2');
-        createSwiper(2);
+       // createSwiper(2);
     }else if (wWidth > 801){
         $('swiper-container').attr('slides-per-view', '4');
-        createSwiper(4);
+       // createSwiper(4);
     }
 }
-
-//Crea un swiper per la pàgina de Detall
-function createSwiper(numCol) {
-    let swiper = new Swiper(".swiperDetail .swiper-container", {
-        loop: true,
-        slidesPerView: numCol,
-        spaceBetween: 30,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-        }
-      });
-}
-
-$(function() {
-    let wWidth = $(window).width();
-    gridSwiper(wWidth);
-});
-
-$(window).on("resize", function(){  
-    let wWidth = $(window).width();
-    gridSwiper(wWidth);
-});
-    

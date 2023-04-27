@@ -52,6 +52,7 @@
                 "name": "Narazuke",
                 "description": "El sake té una història molt llarga al Japó, sobretot a Nara. La majoria d'experts coincideixen que el primer sake, conegut com a “sake de temple”, i moltes de les tècniques modernes per destil·lar-lo són originàries de Nara. Un dels problemes que sorgien en destil·lar aquesta beguda era el pòsit. I, per descomptat, no es podia desaprofitar res que provingués d'un temple sargat, per això el sediment que quedava en produir Sake es feia servir per fer adobats d'un sabor únic. Es triguen aproximadament tres anys a fer aquests adobats.",
                 "img": "https://upload.wikimedia.org/wikipedia/commons/3/3d/Sake-Soy_Marinated_Sablefish_%283466997813%29.jpg",
+                "alt": "Narazuke",
                 "attribution": {
                     "author": "Wikimedia Commons",
                     "url": "https://commons.wikimedia.org/wiki/File:Sake-Soy_Marinated_Sablefish_(3466997813).jpg"
@@ -61,6 +62,7 @@
                 "name": "Chagayu",
                 "description": "A més de la producció de sake, Nara és també tradicionalment conegut pel seu te verd, especialment el llegendari te Yamato el qual es creu que prové dels anys 800-810. Per a una de les coses que antigament es feia servir més aquesta beguda és per fer unes farinetes d'arròs anomenades Chagayu. Se sol fer amb te verd però també es poden trobar variacions amb te fulla, sencha o fins i tot bancha.",
                 "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Cha_Gayu_20141001.jpg/640px-Cha_Gayu_20141001.jpg",
+                "alt": "Chagayu",
                 "attribution": {
                     "author": "Wikimedia Commons",
                     "url": "https://commons.wikimedia.org/wiki/File:Cha_Gayu_20141001.jpg"
@@ -70,6 +72,7 @@
                 "name": "Kuzumochi",
                 "description": "Un dels aperitius més populars del Japó és el mochi, petits pastissos d'arròs normalment coberts per una pasta de mongeta dolça. Aquest aperitiu té una llarga història a Nara i fins i tot pots arribar a veure actualment multituds al voltant de botigues com Nakatanidou per presenciar com preparen el mochi de la forma tradicional, usant un martell de fusta per aixafar l'arròs i donar-li forma.",
                 "img": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Kuzumochi_001.jpg",
+                "alt": "Kuzumochi",
                 "attribution": {
                     "author": "Wikimedia Commons",
                     "url": "https://commons.wikimedia.org/wiki/File:Kuzumochi_001.jpg"
@@ -79,6 +82,7 @@
                 "name": "Miwa Somen",
                 "description": "L'aigua de l'àrea de Miwa és considerada una de les més pures de tot el Japó. Cada any hi ha grups de gent que pugen a la Muntanya Miwa només per poder-la provar. Encara que sigui deliciosa per si sola també li donen un altre ús, combinada amb farina i sal creen un tipus únic de fideus anomenats Miwa Somen. Es poden reconèixer per la forma prima i el sabor suau. Com que el seu sabor és molt subtil se solen menjar amb salsa de soja, brou i sake dolç acompanyats amb algues, confitats, gingebre i altres espècies que potencien el seu sabor. Pots trobar aquest plat servit fred o calent.",
                 "img": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Miwa_somen_01.jpg",
+                "alt": "Miwa Somen",
                 "attribution": {
                     "author": "Wikimedia Commons",
                     "url": "https://commons.wikimedia.org/wiki/File:Miwa_somen_01.jpg"
@@ -92,7 +96,7 @@
         "information": [
             {
                 "id": 1,
-                "name": "Parc de Nara",
+                "name": "Parc Nara",
                 "description": [
                     "És un parc públic situat als peus de la Muntanya Wakakusa i creat el 1880. El parc és un dels &quot;llocs de bellesa escènica&quot; designats pel Ministeri d'Educació, Cultura, Esports, Ciència i Tecnologia del Japó (MEXT). Els més de 1.200 cérvols shika salvatges que estan donant voltes lliurement al parc, també es troben sota la designació del MEXT, classificat com a &quot;Monument Natural&quot;. La mida oficial del parc és d'aproximadament 502 ha.", 
                     "També es poden trobar serveis de jinrikisha (carro que es desplaça amb tracció humana) a les entrades dels temples Tōdai-ji i Kōfuku-ji. Els jardins que abans eren privats són mostrats al públic. Aquests jardins fan ús dels edificis dels temples com a elements adjunts dels seus paisatges. El parc és la llar del Museu Nacional de Nara i del santuari Todai-ji.", 
@@ -101,6 +105,7 @@
                 "img": [
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Nara_Park_-_panoramio_%282%29.jpg",
+                        "alt": "Parc Nara",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:Nara_Park_-_panoramio_(2).jpg"
@@ -108,6 +113,7 @@
                     },
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Nara_Park_Shika.jpg",
+                        "alt": "Cèrvols del Parc Nara",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:Nara_Park_Shika.jpg"
@@ -115,6 +121,7 @@
                     },
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Nara-tea-house-in-Nara-Park.JPG",
+                        "alt": "Casa del te en el Parc Nara",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:Nara-tea-house-in-Nara-Park.JPG"
@@ -135,6 +142,7 @@
                 "img": [
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/T%C5%8Ddai-ji_Kon-d%C5%8D.jpg",
+                        "alt": "Temple Tōdai-ji",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:T%C5%8Ddai-ji_Kon-d%C5%8D.jpg"
@@ -142,6 +150,7 @@
                     },
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/T%C5%8Ddai-ji_hdsr_IMG_3844.jpg",
+                        "alt": "Estatua de Virūpākṣa, un dels quatre Reis Celestials",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:T%C5%8Ddai-ji_hdsr_IMG_3844.jpg"
@@ -149,6 +158,7 @@
                     },
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Daibutsu_Grand_bouddha_-_T%C5%8Ddai-ji_-_Nara.jpg",
+                        "alt": "Estatua del Gran Buda",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:Daibutsu_Grand_bouddha_-_T%C5%8Ddai-ji_-_Nara.jpg"
@@ -170,6 +180,7 @@
                 "img": [
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Kasuga-taisha11bs3200.jpg",
+                        "alt": "Santuari Kasuga Taisha",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:Kasuga-taisha11bs3200.jpg"
@@ -177,6 +188,7 @@
                     },
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/5/55/Kasuga-taisha02st3200.jpg",
+                        "alt": "Camí del Santuari Kasuga Taisha",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:Kasuga-taisha02st3200.jpg"
@@ -184,6 +196,7 @@
                     },
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Kasuga_Shrine_lanterns-01.jpg",
+                        "alt": "Fanals del Santuari Kasuga Taisha",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:Kasuga_Shrine_lanterns-01.jpg"
@@ -204,6 +217,7 @@
                 "img": [
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Kofukuji12st5s3200.jpg",
+                        "alt": "Temple Kōfuku-ji",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:Kofukuji12st5s3200.jpg"
@@ -211,6 +225,7 @@
                     },
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/181029_Ch%C5%AB-kond%C5%8D_of_K%C5%8Dfuku-ji.jpg",
+                        "alt": "Chū-kondō, Saló Daurat Central",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:181029_Ch%C5%AB-kond%C5%8D_of_K%C5%8Dfuku-ji.jpg"
@@ -218,6 +233,7 @@
                     },
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Kofukuji09s3200.jpg",
+                        "alt": "Tō-kondō, Saló Daurat del Est",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:Kofukuji09s3200.jpg"
@@ -238,6 +254,7 @@
                 "img": [
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Horyu-ji10s3200.jpg",
+                        "alt": "Temple Hōryū-ji",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:Horyu-ji10s3200.jpg"
@@ -245,6 +262,7 @@
                     },
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Horyu-ji18s3200.jpg",
+                        "alt": "Dormitori Oest del Temple Hōryū-ji",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:Horyu-ji18s3200.jpg"
@@ -252,6 +270,7 @@
                     },
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/9/90/H%C5%8Dry%C5%AB-ji_Daik%C5%8Dd%C5%8D%2C_June_7th%2C_2019.jpg",
+                        "alt": "Daikōdō",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:H%C5%8Dry%C5%AB-ji_Daik%C5%8Dd%C5%8D,_June_7th,_2019.jpg"
@@ -273,6 +292,7 @@
                 "img": [
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/d/de/181103_Heijo_Palace_Daigokuden_Nara_Japan04bs.jpg",
+                        "alt": " Daigokuden, edifici principal del Palau Heijō-Kyu",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:181103_Heijo_Palace_Daigokuden_Nara_Japan04bs.jpg"
@@ -280,6 +300,7 @@
                     },
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/6/6e/%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%A7%E6%A5%B5%E6%AE%BF%E3%83%BB%E5%89%8D%E5%BA%AD%28Front_Courtyard%29.JPG",
+                        "alt": "Pati frontal del primer Daigokuden",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%A7%E6%A5%B5%E6%AE%BF%E3%83%BB%E5%89%8D%E5%BA%AD(Front_Courtyard).JPG"
@@ -287,6 +308,7 @@
                     },
                     {
                         "url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Toin_Teien.jpg",
+                        "alt": "Jardí Tōin Teien",
                         "attribution": {
                             "author": "Wikimedia Commons",
                             "url": "https://commons.wikimedia.org/wiki/File:Toin_Teien.jpg"
@@ -294,7 +316,17 @@
                     }
                 ],
                 "latitude": 34.690815959590594, 
-                "altitude": 135.7942596423264
+                "altitude": 135.7942596423264,
+                "list": {
+                    "title": "Name title",
+                    "introduction": "Some text",
+                    "description": [
+                        "Content1",
+                        "Content1",
+                        "Content1",
+                        "Content1"
+                    ]
+                }
             }
         ]
     }
