@@ -5,7 +5,7 @@ import data from '../json/details.json';
 //register();
 
 
-
+$(function(){
 /**********GENEREAL FUNCTIONS***********/
 //Modifica la variable de la categoria clicada
 function setCategory(el) {
@@ -126,7 +126,7 @@ setInterval(() => {
 }, 5000);
 
 
-$(function(){
+
 /*****INDEX*****/
 //Afegeix el mapa a la pàgina principal
 if($(".containerIndex")[0]){
@@ -166,7 +166,7 @@ categoryClicked === "" ? categoryClicked = "architecture" : categoryClicked = ca
 let detailClicked = "";
 
 setDetail(".categoryCard a");
-setDetail("header a");
+setDetail(".navBigScreen a");
 
 detailClicked = localStorage.getItem("detail");
 
