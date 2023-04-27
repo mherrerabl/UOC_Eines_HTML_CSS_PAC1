@@ -71,7 +71,7 @@ if($(".containerIndex")[0]){
                                                         <div>
                                                             <a id="arch${obj.id}" href="./detail.html" class="card">
                                                             <img src="${obj.img[0].url}" alt="${obj.img[0].alt}">
-                                                            <h4>${obj.name}</h4>
+                                                            <h5>${obj.name}</h5>
                                                             </a>
                                                         </div>
                                                     </swiper-slide>`);
@@ -85,7 +85,7 @@ if ($(".containerCategory")[0]) {
     arrArch.forEach( a => {
         $(".containerCategory ul").append(`<li class="categoryCard">
                                                     <img src="${a.img[0].url}" alt="${a.img[0].url}">
-                                                        <h4>${a.name}</h4>
+                                                        <h5>${a.name}</h5>
                                                         <a href="./detail.html" id="arch${a.id}">Més informació</a>
                                                     
                                             </li>`);
@@ -201,7 +201,7 @@ if ($(".containerDetail")[0]) {
 
         createMap(`mapDetail${objArch[0].id}`, objArch[0].latitude, objArch[0].altitude, objArch[0].img[0].url, objArch[0].name, 15);
         $(".containerDetail").append(`<section>
-                                        <h3>Altres Punts d'interès</h3>
+                                        <h2>Altres Punts d'interès</h2>
                                         <swiper-container class="swiperDetail" space-between="25" grab-cursor="true" navigation="true" slides-per-view="1"></swiper-container>
                                     </section>`);
         objArch2.forEach( obj => {
@@ -209,7 +209,7 @@ if ($(".containerDetail")[0]) {
                                                             <div>
                                                                 <a id="arch${obj.id}" href="./detail.html" class="card">
                                                                 <img src="${obj.img[0].url}" alt="${obj.img[0].alt}">
-                                                                <h4>${obj.name}</h4>
+                                                                <h5>${obj.name}</h5>
                                                                 </a>
                                                             </div>
                                                         </swiper-slide>`);
