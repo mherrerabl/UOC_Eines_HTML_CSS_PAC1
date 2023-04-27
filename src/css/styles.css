@@ -787,7 +787,7 @@ a:active{
 
 /**links header**/
 .navBigScreen li a:hover{
-    text-decoration: underline var(--main2Color) 2px;
+    text-decoration: underline var(--main2Color) 2px !important;
 }
 
 .menu li:hover a{

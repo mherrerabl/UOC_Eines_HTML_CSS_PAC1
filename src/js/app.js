@@ -63,6 +63,7 @@ setInterval(() => {
 
 
 $(function(){
+    console.log("dd");
 /*****INDEX*****/
 //Afegeix el mapa a la pàgina principal
 if($(".containerIndex")[0]){
