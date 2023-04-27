@@ -99,12 +99,13 @@ if ($(".containerCategory")[0]) {
 //Rep l'id de l'element selecionat (<a>) i l'emmagatzema en localStorage
 let categoryClicked = localStorage.getItem("category");
 categoryClicked === "" ? categoryClicked = "architecture" : categoryClicked = categoryClicked;
-let detailClicked = localStorage.getItem("detail");
+let detailClicked = "";
 
 setDetail(".categoryCard a");
 setDetail("header a");
 
-
+detailClicked = localStorage.getItem("detail");
+console.log(`local${localStorage.getItem("detail")}`);
  
 console.log(`detail${detailClicked}`);
 
