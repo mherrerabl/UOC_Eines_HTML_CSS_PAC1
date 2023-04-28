@@ -241,7 +241,6 @@ $(function(){
             $(".breadcrumbs p .currentPage").replaceWith(`<a href="category.html">${breadcrumbCategory}</a>`);
             $(".breadcrumbs p").append(`<span class="separator">></span><span class="currentPage">${objArch[0].name}</span>`);
             
-
             $(".containerDetail article").addClass("architecture");
             $(".containerDetail article").append(title);
 
