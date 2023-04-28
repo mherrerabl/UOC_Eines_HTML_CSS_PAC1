@@ -242,7 +242,7 @@ setCategory("footer a");
 let wWidth = $(window).width();
 gridSwiper(wWidth);
 
-});
+
 
 $(window).on("resize", function(){  
     let wWidth = $(window).width();
@@ -305,3 +305,5 @@ function gridSwiper(wWidth) {
        // createSwiper(4);
     }
 }
+
+});
