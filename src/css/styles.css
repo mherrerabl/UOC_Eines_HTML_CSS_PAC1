@@ -819,12 +819,12 @@ a:active:not(.logo, .card, .card a, .menu a), a:focus:not(.logo, .card, .card a,
     background: var(--main2Color);
 }
 
-.iconMenu:hover i{
-    background: var(--main2Color);
+.dropdown .iconMenu i:hover{
+    color: var(--main2Color);
 }
 
-.iconMenu:active i, .iconMenu:focus i{
-    background-color: var(--mainColor);
+.dropdown .iconMenu i:active, .iconMenu i:focus{
+    color: var(--mainColor);
 }
 
 /**links footer**/
