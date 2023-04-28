@@ -620,7 +620,7 @@ swiper-container swiper-slide h5{
     /*****DETAIL*****/
     .containerDetail .architecture{
         display: grid;
-        grid-template-columns: 50% 50%;
+        grid-template-columns: auto auto;
         grid-gap: 35px;
     }
 
