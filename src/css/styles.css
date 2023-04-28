@@ -461,9 +461,9 @@ swiper-container swiper-slide h5{
 
 /*****Accommodation*****/
 .containerDetail .accommodation .accommodationMap{
-    width: 500px;
+    width: 800px;
     max-width: 100%;
-    height: 250px;
+    height: 350px;
     margin: 0 auto;
     margin-bottom: 50px;
 }
