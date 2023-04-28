@@ -5,8 +5,8 @@
   "author": "Míriam Herrera Blanes",
   "source": "src/index.html",
   "browserslist": [
-    "> 1%",
-    "since 2013",
+    "> 0.01%",
+    "since 2000",
     "dead"
   ],
   "scripts": {
