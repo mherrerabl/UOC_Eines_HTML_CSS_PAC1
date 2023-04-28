@@ -7,11 +7,11 @@
 
 /**********COMMONS**********/
 :root{
-    --mainColor: #B3102E;
-    --main2Color: #006612;
+    --mainColor: #006612;
+    --main2Color: #B3102E;
     --textColor: #000; 
     --background: #EDEDED;
-    --swiper-theme-color: var(--main2Color);
+    --swiper-theme-color: var(--mainColor);
 }
 
 *{
@@ -66,6 +66,7 @@ p, li, a{
     font-size: 1.6rem;
     color: var(--textColor);
     font-family: 'Palanquin', sans-serif;
+    font-weight: 500;
 }
 
 li{
@@ -102,8 +103,16 @@ figcaption{
 
 figcaption a{
     font-size: 1.4rem;
-    text-decoration: underline var(--main2Color) 2px;
+    text-decoration: underline var(--mainColor) 2px;
 }
+
+a.btn{
+    background: var(--mainColor);
+    text-align: center;
+    border-radius: 5px;
+    color: var(--background);
+}
+
 /**Icons**/
 .fa-2xl{
     font-size: 2.5rem;
@@ -218,7 +227,7 @@ figcaption a{
 /**********FOOTER**********/
 footer{
     display: grid;
-    background: var(--main2Color);
+    background: var(--background);
     grid-template-columns: 100%;
     grid-gap: 0;
     padding-top: 25px;
@@ -272,7 +281,10 @@ footer div:last-child ul{
 footer div:last-child li{
     display: grid;
     justify-items: center;
-    padding: 7.5px;
+}
+
+footer div:last-child li a{
+    color: var(--background);
 }
 
 
@@ -387,31 +399,20 @@ swiper-container swiper-slide h5{
 
 
 /**********CATEGORY**********/
-.containerCategory li{
-    background: var(--background);
-    margin-bottom: 25px;
-}
-
-.containerCategory .categoryCard{
+.containerCategory .card{
     display: grid;
+    background: var(--background);
+    justify-items: center;
 }
 
-.containerCategory .categoryCard img{
+.containerCategory .card img{
     width: 100%;
 }
 
-.containerCategory .categoryCard h5{
+.containerCategory .card h5{
     padding: 25px 15px;
     text-align: center;
     align-self: center;
-}
-
-.containerCategory .categoryCard a{
-    padding: 15px;
-    background: var(--main2Color);
-    display: block;
-    text-align: center;
-    align-self: flex-end;
 }
 
 
@@ -478,16 +479,12 @@ swiper-container swiper-slide h5{
 
 
 
-
-
-
-
-
-
 /**********MEDIA QUERIES**********/
 @media screen and (max-width: 479px) {
     /**HEADER**/
-
+    header .logo h1, header .logo p{
+        font-size: 3rem;
+    }
     /**FOOTER**/
    
 }
@@ -545,7 +542,7 @@ swiper-container swiper-slide h5{
         grid-gap: 25px;
     }
     
-    .containerCategory .categoryCard img{
+    .containerCategory .card img{
         width: 45vw;
         height: 35vw;
         max-width: 100%;
@@ -613,7 +610,7 @@ swiper-container swiper-slide h5{
     grid-gap: 25px;
     }
 
-    .containerCategory .categoryCard img{
+    .containerCategory .card img{
         width: 20vw;
         height: 15vw;
         max-width: 250px;
@@ -787,25 +784,24 @@ swiper-container swiper-slide h5{
 
 /*****HOVER AND ACTIVE****/
 /**general links**/
-a:hover:not(.logo, .card){
-    text-decoration: underline var(--mainColor) 2px;
+a:hover:not(.logo, .card, .card a){
+    text-decoration: underline var(--main2Color) 2px;
 }
 
-a:active{
-    color: var(--mainColor);
+a:active:not(.logo, .card, .card a), a:focus:not(.logo, .card, .card a) {
+    color: var(--main2Color);
+    text-decoration: underline var(--main2Color) 2px;
 }
 
-/**links header**/
-.navBigScreen li a:hover{
-    text-decoration: underline var(--main2Color) 2px !important;
-}
-
+/**links header menu    **/
 .menu li:hover a{
-    text-decoration: underline var(--mainColor) 2px;
+    text-decoration: underline var(--background) 2px;
+    color: var(--background);
 }
 
 .menu li:hover{
     cursor: pointer;
+    background: var(--main2Color);
 }
 
 /**links footer**/
@@ -813,30 +809,30 @@ footer a:hover i{
     color: var(--mainColor);
 }
 footer div:last-child a:hover{
-    text-decoration: underline var(--main2Color) 2px;
+    text-decoration: underline var(--main2Color) 2px !important;
 }
 
 /**Cards**/
-.containerCategory .categoryCard a:hover{
-    text-decoration: none;
-    background: var(--mainColor);
-    font-weight: 700;
+.card:hover{
+    border-bottom: 2px solid var(--main2Color);
+    height: auto;
+    cursor: pointer;
 }
 
 /**Logo**/
-.containerHeader .logo:hover, .containerHeader .logo:hover p{
+a.logo:hover, a.logo:hover p{
     color: var(--main2Color);
     cursor: pointer;
 }
 
-footer .logo:hover, footer .logo:hover p{
-    color: var(--mainColor);
+a.logo:active, a.logo:active p, a.logo:focus, a.logo:focus p{
+    color: var(--main2Color);
     cursor: pointer;
 }
 
 /**Swiper .card**/
 swiper-slide:hover{
-    border-bottom: 2px solid var(--mainColor);
+    border-bottom: 2px solid var(--main2Color);
     height: auto;
     cursor: pointer;
 }
@@ -845,4 +841,9 @@ swiper-slide:active{
     border-bottom: 2px solid var(--main2Color);
     height: auto;
     cursor: pointer;
+}
+
+/**Figcaption**/
+figcaption a:hover{
+    text-decoration: underline var(--main2Color) 2px !important;
 }

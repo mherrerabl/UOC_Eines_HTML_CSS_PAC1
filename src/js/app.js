@@ -6,67 +6,6 @@ import data from '../json/details.json';
 
 
 $(function(){
-/**********GENEREAL FUNCTIONS***********/
-//Modifica la variable de la categoria clicada
-function setCategory(el) {
-    $(el).on("click", function(event){
-        categoryClicked = event.target.id;
-        localStorage.setItem("category", categoryClicked);
-    });
-}
-
-//Modifica la variable del detall clicat
-function setDetail(el){
-    $(el).on("click", function(){
-        detailClicked  = $(this).attr('id');
-        localStorage.setItem("detail", detailClicked);
-    });
-}
-
-//Crea el mapa segons la latitud i l'altitud
-function createMap(el, lat, alt, img, title, zoom){
-    const mapOptions = {
-        center: [lat, alt],
-        zoom: zoom
-    }
-    
-    const map = new L.map(el, mapOptions);
-    const layer = new L.TileLayer('http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png');
-    map.addLayer(layer);
-    
-    let markerOptions = {
-        title: "Prefectrua de Nara",
-        clickable: true,
-        draggable: true
-    }
-    const marker = new L.Marker([lat, alt], markerOptions);
-    if(img === ""){
-        marker.bindPopup('<p style="text-align: center">'+title+'</p>').openPopup();
-    }else{
-        marker.bindPopup('<img style="width: 200px" src="'+img+'"><p style="text-align: center">'+title+'</p>').openPopup();
-    }
-    marker.addTo(map);
-}
-
-//Canvia el número de columnes de SwiperJS
-function gridSwiper(wWidth) {
-    if (wWidth < 479){
-        $('swiper-container').attr('slides-per-view', '1');
-       // createSwiper(1);
-    }else if(wWidth < 800){
-        $('swiper-container').attr('slides-per-view', '2');
-       // createSwiper(2);
-    }else if (wWidth > 801){
-        $('swiper-container').attr('slides-per-view', '4');
-       // createSwiper(4);
-    }
-}
-
-
-
-
-
-
 /*****HEADER*****/
 //Menu
 //Inserta el menú desplegable, el mostra. Quan es tanca, s'esborra
@@ -148,10 +87,11 @@ if($(".containerIndex")[0]){
 if ($(".containerCategory")[0]) {
     const arrArch = data["architecture"].information;
     arrArch.forEach( a => {
-        $(".containerCategory ul").append(`<li class="categoryCard">
+        $(".containerCategory ul").append(`<li class="card">
+                                            <a href="./detail.html" id="arch${a.id}">
                                                     <img src="${a.img[0].url}" alt="${a.img[0].url}">
                                                         <h5>${a.name}</h5>
-                                                        <a href="./detail.html" id="arch${a.id}">Més informació</a>
+                                            </a>
                                                     
                                             </li>`);
     });
@@ -271,7 +211,7 @@ if ($(".containerDetail")[0]) {
                                         <swiper-container class="swiperDetail" space-between="25" grab-cursor="true" navigation="true" slides-per-view="1"></swiper-container>
                                     </section>`);
         objArch2.forEach( obj => {
-            $(".containerDetail .swiperDetail").append(`<swiper-slide>
+            $(".containerDetail .swiperDetail").append(`<swiper-slide class="card">
                                                             <div>
                                                                 <a id="arch${obj.id}" href="./detail.html" class="card">
                                                                 <img src="${obj.img[0].url}" alt="${obj.img[0].alt}">
@@ -308,3 +248,60 @@ $(window).on("resize", function(){
     let wWidth = $(window).width();
     gridSwiper(wWidth);
 });
+
+
+/**********GENEREAL FUNCTIONS***********/
+//Modifica la variable de la categoria clicada
+function setCategory(el) {
+    $(el).on("click", function(event){
+        categoryClicked = event.target.id;
+        localStorage.setItem("category", categoryClicked);
+    });
+}
+
+//Modifica la variable del detall clicat
+function setDetail(el){
+    $(el).on("click", function(){
+        detailClicked  = $(this).attr('id');
+        localStorage.setItem("detail", detailClicked);
+    });
+}
+
+//Crea el mapa segons la latitud i l'altitud
+function createMap(el, lat, alt, img, title, zoom){
+    const mapOptions = {
+        center: [lat, alt],
+        zoom: zoom
+    }
+    
+    const map = new L.map(el, mapOptions);
+    const layer = new L.TileLayer('http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png');
+    map.addLayer(layer);
+    
+    let markerOptions = {
+        title: "Prefectrua de Nara",
+        clickable: true,
+        draggable: true
+    }
+    const marker = new L.Marker([lat, alt], markerOptions);
+    if(img === ""){
+        marker.bindPopup('<p style="text-align: center">'+title+'</p>').openPopup();
+    }else{
+        marker.bindPopup('<img style="width: 200px" src="'+img+'"><p style="text-align: center">'+title+'</p>').openPopup();
+    }
+    marker.addTo(map);
+}
+
+//Canvia el número de columnes de SwiperJS
+function gridSwiper(wWidth) {
+    if (wWidth < 479){
+        $('swiper-container').attr('slides-per-view', '1');
+       // createSwiper(1);
+    }else if(wWidth < 800){
+        $('swiper-container').attr('slides-per-view', '2');
+       // createSwiper(2);
+    }else if (wWidth > 801){
+        $('swiper-container').attr('slides-per-view', '4');
+       // createSwiper(4);
+    }
+}
