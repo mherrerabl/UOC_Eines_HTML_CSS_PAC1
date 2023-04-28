@@ -172,19 +172,18 @@ a.btn{
     background: var(--background);
     width: 100%;
     text-align: end;
-    padding: 15px 0;
 }
 
 .menu li{
     margin: 0px;
-    padding: 5px 25px;
 }
 
 .menu li a{
     margin: 0px;
-    display: block;
-    width: 100%;
+    max-width: 100%;
     height: 100%;
+    padding: 7px 25px;
+    display: block;
 }
 
 /**Slider HeaderIndex**/
@@ -315,6 +314,8 @@ footer div:last-child li a{
 }
 
 .containerIndex > section:first-child > p span{
+    display: block;
+    margin-top: 15px;
     font-size: 2rem;
 }
 
@@ -399,10 +400,20 @@ swiper-container swiper-slide h5{
 
 
 /**********CATEGORY**********/
-.containerCategory .card{
+.containerCategory > ul{
     display: grid;
+    grid-template-columns: auto;
+    grid-gap: 25px;
+}
+
+.containerCategory .card{
     background: var(--background);
     justify-items: center;
+    height: 100%;
+}
+
+.containerCategory .card a {
+    height: inherit;
 }
 
 .containerCategory .card img{
@@ -412,7 +423,6 @@ swiper-container swiper-slide h5{
 .containerCategory .card h5{
     padding: 25px 15px;
     text-align: center;
-    align-self: center;
 }
 
 
@@ -537,11 +547,9 @@ swiper-container swiper-slide h5{
 
     /*****CATEGORY*****/
     .containerCategory > ul{
-        display: grid;
         grid-template-columns: auto auto;
-        grid-gap: 25px;
     }
-    
+
     .containerCategory .card img{
         width: 45vw;
         height: 35vw;
@@ -605,17 +613,23 @@ swiper-container swiper-slide h5{
 
     /*****CATEGORY*****/
     .containerCategory > ul{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 25px;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-gap: 25px;
+    }
+
+    .containerCategory .card a{
+        display: grid;
+        grid-template-columns: auto;
     }
 
     .containerCategory .card img{
-        width: 20vw;
-        height: 15vw;
-        max-width: 250px;
-        max-height: 185px;
+        height: 18vw;
+        max-height: 175px;
+        min-width: 100%;
     }
+
+
 
     /*****DETAIL*****/
     .containerDetail .architecture{
@@ -783,7 +797,7 @@ swiper-container swiper-slide h5{
 }
 
 /*****HOVER AND ACTIVE****/
-/**general links**/
+/**general links (s'exclou el logotip, els cards del swiper i els cards de la pàgina categories**/
 a:hover:not(.logo, .card, .card a){
     text-decoration: underline var(--main2Color) 2px;
 }
@@ -794,33 +808,39 @@ a:active:not(.logo, .card, .card a, .menu a), a:focus:not(.logo, .card, .card a,
 }
 
 /**links header menu**/
-.menu li:hover a{
+.menu li a:hover{
     text-decoration: none;
     color: var(--background);
-}
-
-.menu li:hover{
-    cursor: pointer;
     background: var(--main2Color);
 }
 
 .menu li a:active, .menu li a:focus{
-    text-decoration: underline var(--background) 2px;
     color: var(--background);
+    background: var(--main2Color);
 }
 
+.iconMenu:hover i{
+    background: var(--main2Color);
+}
+
+.iconMenu:active i, .iconMenu:focus i{
+    background-color: var(--mainColor);
+}
 
 /**links footer**/
-footer a:hover i{
-    color: var(--mainColor);
-}
-footer div:last-child a:hover{
-    text-decoration: underline var(--main2Color) 2px !important;
+footer a:hover i, footer a:active i, footer a:focus i{
+    color: var(--main2Color);
 }
 
 /**Cards**/
 .card:hover{
     border-bottom: 2px solid var(--main2Color);
+    height: auto;
+    cursor: pointer;
+}
+
+.card:active, .card:focus{
+    border: 2px solid var(--main2Color);
     height: auto;
     cursor: pointer;
 }
@@ -843,13 +863,8 @@ swiper-slide:hover{
     cursor: pointer;
 }
 
-swiper-slide:active{
+swiper-slide:active, swiper-slide:focus{
     border-bottom: 2px solid var(--main2Color);
     height: auto;
     cursor: pointer;
-}
-
-/**Figcaption**/
-figcaption a:hover{
-    text-decoration: underline var(--main2Color) 2px !important;
 }
