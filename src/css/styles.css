@@ -788,14 +788,14 @@ a:hover:not(.logo, .card, .card a){
     text-decoration: underline var(--main2Color) 2px;
 }
 
-a:active:not(.logo, .card, .card a), a:focus:not(.logo, .card, .card a) {
+a:active:not(.logo, .card, .card a, .menu a), a:focus:not(.logo, .card, .card a, .menu a) {
     color: var(--main2Color);
     text-decoration: underline var(--main2Color) 2px;
 }
 
-/**links header menu    **/
+/**links header menu**/
 .menu li:hover a{
-    text-decoration: underline var(--background) 2px;
+    text-decoration: none;
     color: var(--background);
 }
 
@@ -803,6 +803,12 @@ a:active:not(.logo, .card, .card a), a:focus:not(.logo, .card, .card a) {
     cursor: pointer;
     background: var(--main2Color);
 }
+
+.menu li a:active, .menu li a:focus{
+    text-decoration: underline var(--background) 2px;
+    color: var(--background);
+}
+
 
 /**links footer**/
 footer a:hover i{

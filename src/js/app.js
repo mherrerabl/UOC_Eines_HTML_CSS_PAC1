@@ -160,7 +160,7 @@ function gridSwiper(wWidth) {
     categoryClicked === "" ? categoryClicked = "architecture" : categoryClicked = categoryClicked;
     let detailClicked = "";
 
-    setDetail(".categoryCard a");
+    setDetail(".card a");
     setDetail(".navBigScreen a");
 
     detailClicked = localStorage.getItem("detail");
