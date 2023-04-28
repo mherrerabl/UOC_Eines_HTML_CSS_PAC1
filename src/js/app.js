@@ -6,62 +6,62 @@ import data from '../json/details.json';
 
 
 $(function(){
-
     /**********GENEREAL FUNCTIONS***********/
-//Modifica la variable de la categoria clicada
-function setCategory(el) {
-    $(el).on("click", function(event){
-        categoryClicked = event.target.id;
-        localStorage.setItem("category", categoryClicked);
-    });
-}
-
-//Modifica la variable del detall clicat
-function setDetail(el){
-    $(el).on("click", function(){
-        detailClicked  = $(this).attr('id');
-        localStorage.setItem("detail", detailClicked);
-    });
-}
-
-//Crea el mapa segons la latitud i l'altitud
-function createMap(el, lat, alt, img, title, zoom){
-    const mapOptions = {
-        center: [lat, alt],
-        zoom: zoom
+    //Modifica la variable de la categoria clicada
+    function setCategory(el) {
+        $(el).on("click", function(event){
+            categoryClicked = event.target.id;
+            localStorage.setItem("category", categoryClicked);
+        });
     }
+
+    //Modifica la variable del detall clicat
+    function setDetail(el){
+        $(el).on("click", function(){
+            detailClicked  = $(this).attr('id');
+            localStorage.setItem("detail", detailClicked);
+        });
+    }
+
+    //Crea el mapa segons la latitud i l'altitud
+    function createMap(el, lat, alt, img, title, zoom){
+        const mapOptions = {
+            center: [lat, alt],
+            zoom: zoom
+        }
     
-    const map = new L.map(el, mapOptions);
-    const layer = new L.TileLayer('http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png');
-    map.addLayer(layer);
-    
-    let markerOptions = {
-        title: "Prefectrua de Nara",
-        clickable: true,
-        draggable: true
+        const map = new L.map(el, mapOptions);
+        const layer = new L.TileLayer('http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png');
+        map.addLayer(layer);
+        
+        let markerOptions = {
+            title: "Prefectrua de Nara",
+            clickable: true,
+            draggable: true
+        }
+        const marker = new L.Marker([lat, alt], markerOptions);
+        if(img === ""){
+            marker.bindPopup('<p style="text-align: center">'+title+'</p>').openPopup();
+        }else{
+            marker.bindPopup('<img style="width: 200px" src="'+img+'"><p style="text-align: center">'+title+'</p>').openPopup();
+        }
+        marker.addTo(map);
     }
-    const marker = new L.Marker([lat, alt], markerOptions);
-    if(img === ""){
-        marker.bindPopup('<p style="text-align: center">'+title+'</p>').openPopup();
-    }else{
-        marker.bindPopup('<img style="width: 200px" src="'+img+'"><p style="text-align: center">'+title+'</p>').openPopup();
-    }
-    marker.addTo(map);
-}
 
-//Canvia el número de columnes de SwiperJS
-function gridSwiper(wWidth) {
-    if (wWidth < 479){
-        $('swiper-container').attr('slides-per-view', '1');
-       // createSwiper(1);
-    }else if(wWidth < 800){
-        $('swiper-container').attr('slides-per-view', '2');
-       // createSwiper(2);
-    }else if (wWidth > 801){
-        $('swiper-container').attr('slides-per-view', '4');
-       // createSwiper(4);
+    //Canvia el número de columnes de SwiperJS
+    function gridSwiper(wWidth) {
+        if (wWidth < 479){
+            $('swiper-container').attr('slides-per-view', '1');
+        // createSwiper(1);
+        }else if(wWidth < 800){
+            $('swiper-container').attr('slides-per-view', '2');
+        // createSwiper(2);
+        }else if (wWidth > 801){
+            $('swiper-container').attr('slides-per-view', '4');
+        // createSwiper(4);
+        }
     }
-}
+
     /*****HEADER*****/
     //Menu
     //Inserta el menú desplegable, el mostra. Quan es tanca, s'esborra
@@ -139,9 +139,17 @@ function gridSwiper(wWidth) {
         });
     }
 
+
+
+
+
     /*****CATEGORY*****/
     //Crea el contingut de la pàgina
     if ($(".containerCategory")[0]) {
+        //Afegeix el breadcrumb
+        const breadcrumb = `<div class="breadcrumbs"><p><a href="index.html">Inici</a><span class="separator">></span><span class="currentPage">Punts d'interès</span></p></div>`;
+        $(".container").prepend(breadcrumb);
+
         const arrArch = data["architecture"].information;
         arrArch.forEach( a => {
             $(".containerCategory ul").append(`<li class="card">
@@ -152,7 +160,6 @@ function gridSwiper(wWidth) {
                                                 </li>`);
         });
     }
-
 
     /*****DETAIL*****/
     //Rep l'id del enllaç selecionat i l'emmagatzema en localStorage
@@ -165,11 +172,21 @@ function gridSwiper(wWidth) {
 
     detailClicked = localStorage.getItem("detail");
 
-
     //Verifica que sigui la pàgina Detail i crea el contingut de la pàgina
     if ($(".containerDetail")[0]) {
         const infoCategory = data[categoryClicked];
-        
+        let breadcrumbCategory = "";
+        if(categoryClicked === "architecture"){
+            breadcrumbCategory = "Punts d'interès";
+        }else if(categoryClicked === "gastronomy"){
+            breadcrumbCategory = "Punts d'interès"
+        }else{
+            breadcrumbCategory = "Allotjaments turístics"
+        }
+        //Afegeix el breadcrumb
+        const breadcrumb = `<div class="breadcrumbs"><p><a href="index.html">Inici</a><span class="separator">></span><span class="currentPage">${breadcrumbCategory}</span></span></p></div>`;
+        $(".container").prepend(breadcrumb);
+
         //Crea la pàgina d'Allotjaments
         if(categoryClicked === "accommodations"){
             const title = `<h2>${infoCategory.title}</h2>`;
@@ -220,6 +237,11 @@ function gridSwiper(wWidth) {
             const objArch2 =  arrArch.filter(arch => arch.id !== idArch);
             const title = `<h2>${objArch[0].name}</h2>`;
             
+            //Modifica el breadcrumb
+            $(".breadcrumbs p .currentPage").replaceWith(`<a href="category.html">${breadcrumbCategory}</a>`);
+            $(".breadcrumbs p").append(`<span class="separator">></span><span class="currentPage">${objArch[0].name}</span>`);
+            
+
             $(".containerDetail article").addClass("architecture");
             $(".containerDetail article").append(title);
 
@@ -293,6 +315,7 @@ function gridSwiper(wWidth) {
     //Modifica la variable clickedCategory
     setCategory(".indexHeader a");
     setCategory("footer a");
+
 
 
     //Modifica el nombre de slide que es mostren en pantalla segons la mida de la pantalla

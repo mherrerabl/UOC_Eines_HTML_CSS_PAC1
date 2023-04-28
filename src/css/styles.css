@@ -286,6 +286,15 @@ footer div:last-child li a{
     color: var(--background);
 }
 
+/*****BREADCRUMBS*****/
+.breadcrumbs .separator{
+    margin: 0 15px;
+}
+
+.breadcrumbs .currentPage{
+    color: var(--main2Color);
+    font-weight: 700;
+}
 
 /*******INDEX********/
 .containerIndex{
@@ -393,7 +402,7 @@ swiper-container swiper-slide h5{
     margin-left: 25px;
     list-style-type: disc;
 }
-.containerLinks a{
+.containerLinks a:not(.breadcrumbs a){
     color: blue;
     text-decoration: underline;
 }
@@ -763,11 +772,6 @@ swiper-container swiper-slide h5{
     /*****INDEX*****/
     .containerIndex{
         margin: 50px;
-    }
-
-    /*****COMMON CONTAINER*****/
-    .container{
-        margin: 75px;
     }
 }
     
